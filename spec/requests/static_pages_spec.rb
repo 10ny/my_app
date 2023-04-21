@@ -16,9 +16,9 @@ RSpec.describe "StaticPages", type: :request do
       expect(response).to have_http_status :ok
     end
 
-    it "ホーム | Serve が含まれていること" do
+    it "Serve が含まれていること" do
      get static_pages_home_path
-     expect(response.body).to include "ホーム | #{base_title}"
+     expect(response.body).to include "<title>#{base_title}</title>"
     end
   end
 
