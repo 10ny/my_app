@@ -30,6 +30,7 @@ group :test do
   gem "minitest",                 "5.15.0"
   gem "minitest-reporters",       "1.5.0"
   gem "guard",                    "2.18.0"
+  gem 'guard-rspec',              require: false
   gem "guard-minitest",           "2.4.6"
   gem 'rspec-rails',              "~> 6.0.0"
   gem 'factory_bot_rails'
