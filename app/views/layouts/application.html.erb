@@ -11,6 +11,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="">
+      <div class="container">
+        <%= link_to image_tag("Servelogo", alt: "Serve logo", width: "200"), static_pages_home_path, id: "logo" %>
+        <nav>
+          <ul class="">
+            <li><%= link_to "Serveについて", "#" %></li>
+            <li><%= link_to "問い合わせ", "#" %></li>
+            <li><%= link_to "ログイン", "#" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
