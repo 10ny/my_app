@@ -28,9 +28,9 @@ RSpec.describe "StaticPages", type: :request do
       expect(response).to have_http_status :ok
     end
 
-    it "アプリについて | Serve が含まれていること" do
+    it "Serveについて | Serve が含まれていること" do
      get static_pages_about_path
-     expect(response.body).to include "アプリについて | #{base_title}"
+     expect(response.body).to include "Serveについて | #{base_title}"
     end
   end
 
