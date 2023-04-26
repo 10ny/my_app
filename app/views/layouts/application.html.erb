@@ -7,24 +7,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <header class="">
-      <div class="container">
-        <%= link_to image_tag("Servelogo", alt: "Serve logo", width: "200"), static_pages_home_path, id: "logo" %>
-        <nav>
-          <ul class="">
-            <li><%= link_to "Serveについて", "#" %></li>
-            <li><%= link_to "問い合わせ", "#" %></li>
-            <li><%= link_to "ログイン", "#" %></li>
-          </ul>
-        </nav>
+
+  <%= render "layouts/header" %>
+
+  <%# main %>
+    <main class="containter">
+      <div class="container main">
+        <%= yield %>
       </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+    </main>
+
+  <%= render "layouts/footer" %>
+
   </body>
 </html>
