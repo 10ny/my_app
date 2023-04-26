@@ -1,18 +1,16 @@
-<div class="">
-
-  <h2 class="fnb">
+<div class="row">
+  <h2 class="col-6 center">
     Find<br>
     New<br>
     Beans
   </h2>
-  <h2 class="mmd">
+  <h2 class="col-6 center">
     未知の<br>
     豆との<br>
     出会い
   </h2>
-
-  <%= link_to "ログイン", "#", class: "btn" %>
-
-  <%= link_to "Serveについて", "#", class: "link" %>
-
+</div>
+<div class="d-grid gap-2 col-3 mx-auto">
+  <%= link_to "ログイン", "login_path", class: "btn btn-primary" %>
+  <%= link_to "Serveについて", "about_path", class: "btn btn-info" %>
 </div>

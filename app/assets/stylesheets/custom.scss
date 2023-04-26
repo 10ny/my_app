@@ -1,0 +1,62 @@
+@import "bootstrap";
+
+/* universal */
+
+body {
+  color: $gray-900;
+}
+
+.center{
+  text-align: center;
+}
+
+
+
+/* header */
+
+header {
+  background-color: $gray-100;
+  font-weight: bold;
+  box-shadow: 0 3px 6px $gray-700;
+
+  .nav-link {
+    color: $gray-900;
+  }
+}
+
+  /* footer */
+
+footer {
+  height: 24px;
+  background-color: $gray-100;
+  color: $gray-700;
+  box-shadow: 0 -2px 6px $gray-300;
+  margin-top: 45px;
+}
+
+
+/* information */
+
+.information {
+  height: 30px;
+  color: $gray-900;
+  background-color: #7DB9DE;
+  p {
+    font-size: 15px;
+    text-align: center;
+    padding: 7.5px auto 7.5px;
+  }
+}
+
+main {
+  .main{
+  border: solid 1px red;
+  }
+}
+
+
+/* home */
+.login-btn {
+  // background-color: $orange-500;
+}
+
