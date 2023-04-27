@@ -2,8 +2,9 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails",           "7.0.4"
-gem 'bootstrap',       '~> 5.0.2'
-gem 'jquery-rails'
+gem "mysql2"           
+gem 'bootstrap',       '5.0.2'
+gem 'jquery-rails'     
 gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
 gem "importmap-rails", "1.1.0"
@@ -12,8 +13,6 @@ gem "stimulus-rails",  "1.0.4"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.4"
 gem "bootsnap",        "1.12.0", require: false
-
-gem 'mysql2'
 
 group :development, :test do
   gem "sqlite3", "1.4.2"
@@ -34,7 +33,7 @@ group :test do
   gem "guard",                    "2.18.0"
   gem 'guard-rspec',              require: false
   gem "guard-minitest",           "2.4.6"
-  gem 'rspec-rails',              "~> 6.0.0"
+  gem 'rspec-rails',              "6.0.0"
   gem 'factory_bot_rails'
 end
 
