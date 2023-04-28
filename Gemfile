@@ -2,10 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails",           "7.0.4"
-gem "mysql2",          "0.5.5"
 gem "bcrypt",          "3.1.18"
-gem 'bootstrap',       "5.0.2"
-gem 'jquery-rails'     
 gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"
 gem "importmap-rails", "1.1.0"
@@ -35,7 +32,7 @@ group :test do
   gem 'guard-rspec',              require: false
   gem "guard-minitest",           "2.4.6"
   gem 'rspec-rails',              "6.0.0"
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails',         "6.2.0"
 end
 
 group :production do
