@@ -2,8 +2,9 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails",           "7.0.4"
-gem "mysql2"           
-gem 'bootstrap',       '5.0.2'
+gem "mysql2",          "0.5.5"
+gem "bcrypt",          "3.1.18"
+gem 'bootstrap',       "5.0.2"
 gem 'jquery-rails'     
 gem "sassc-rails",     "2.1.2"
 gem "sprockets-rails", "3.4.2"

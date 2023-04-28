@@ -1,23 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) {User.new(name: 'Example User', nickname: 'Tom', email: 'user@example.com')}
+  let(:user) {User.new(name: 'Example User', nickname: 'Tom', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar')}
 
-  it '#Userが有効であること' do
+  it 'Userが有効であること' do
     expect(user).to be_valid
   end
 
-  it '#名前が存在していること' do
+  it '名前が存在していること' do
     user.name = ' '
     expect(user).to_not be_valid
   end
 
-  it '#ニックネームが存在していること' do
+  it 'ニックネームが存在していること' do
     user.nickname = ' '
     expect(user).to_not be_valid
   end
 
-  it '#メールアドレスが存在していること' do
+  it 'メールアドレスが存在していること' do
     user.email = ' '
     expect(user).to_not be_valid
   end
@@ -42,4 +42,42 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
+  it 'メールアドレスが有効な形式であること' do
+    valid_addresses = %w[user@exmple.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    valid_addresses.each do |valid_address|
+      user.email = valid_address
+      expect(user).to be_valid
+    end
+  end
+
+  it '無効な形式のメールアドレスは失敗すること' do
+    invalid_addresses = %W[user@example,com user_at_foo.org user.name@example. foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+    invalid_addresses.each do |invalid_address|
+      user.email = invalid_address
+      expect(user).to_not be_valid
+    end
+  end
+
+  it 'メールアドレスは重複して登録できないこと' do
+    duplicate_user = user.dup
+    user.save
+    expect(duplicate_user).to_not be_valid
+  end
+
+  it 'メールアドレスは小文字でDBに保存されていること' do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    user.email = mixed_case_email
+    user.save
+    expect(user.reload.email).to eq mixed_case_email.downcase
+  end
+
+  it 'パスワードが空白でないこと' do
+    user.password = user.password_confirmation = ' ' * 6
+    expect(user).to_not be_valid
+  end
+
+  it 'パスワードが5文字以上であること' do
+    user.password = user.password_confirmation = 'a' * 5
+    expect(user).to_not be_valid
+  end
 end
