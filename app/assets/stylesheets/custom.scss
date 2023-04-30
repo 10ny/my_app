@@ -1,10 +1,10 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* universal */
 
 body {
-  color: $gray-900;
+  // $gray-900
+  color: $gray-800;
 }
 
 .center{
@@ -21,7 +21,8 @@ header {
   box-shadow: 0 3px 6px $gray-700;
 
   .nav-link {
-    color: $gray-900;
+    // $gray-900
+    color: $gray-800;
   }
 }
 
@@ -40,7 +41,8 @@ footer {
 
 .information {
   height: 30px;
-  color: $gray-900;
+  // $gray-900
+  color: $gray-800;
   background-color: #7DB9DE;
   p {
     font-size: 15px;
