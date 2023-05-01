@@ -1,10 +1,19 @@
 @import "bootstrap";
 
+/* miscellaneous */
+// デバッグ表示
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+}
+
 /* universal */
 
 body {
-  // $gray-900
-  color: $gray-800;
+  color: $gray-900;
+  background-image: url(./images/coffeebeans.png);
 }
 
 .center{
@@ -21,8 +30,7 @@ header {
   box-shadow: 0 3px 6px $gray-700;
 
   .nav-link {
-    // $gray-900
-    color: $gray-800;
+    color: $gray-900;
   }
 }
 
@@ -33,7 +41,7 @@ footer {
   background-color: $gray-100;
   color: $gray-700;
   box-shadow: 0 -2px 6px $gray-300;
-  margin-top: 450px;
+  // margin-top: 450px;
 }
 
 
@@ -41,8 +49,7 @@ footer {
 
 .information {
   height: 30px;
-  // $gray-900
-  color: $gray-800;
+  color: $gray-900;
   background-color: #7DB9DE;
   p {
     font-size: 15px;
@@ -55,6 +62,9 @@ main {
   .main{
   border: solid 1px red;
   }
+  h1 {
+    margin-top: 45px;
+  }
 }
 
 
@@ -64,8 +74,35 @@ main {
 }
 
 
+/* Form */
+.form-title {
+  font-weight: bold;
+}
+
+.required::after {
+    content: " *";
+    font-size: 14pt;
+    color: #FF3399;
+  }
+
+  .asterisk {
+    color: #FF3399;
+  }
+
 /* Sign up form */
 .signup-form {
+  margin-top: 45px;
+  font-weight: bold;
   width: 60%;
-  color: $gray-500;
+  color: $gray-700;
+  input {
+    margin-bottom: 20px;
+  }
+  .btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+  p {
+    font-size: 14px;
+  }
 }

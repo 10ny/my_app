@@ -9,9 +9,9 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status :ok
     end
 
-    it "Sign up | Serve が含まれていること" do
+    it "新規登録 | Serve が含まれていること" do
       get signup_path
-      expect(response.body).to include "Sign up | #{base_title}"
+      expect(response.body).to include "新規登録 | #{base_title}"
     end
   end
 
