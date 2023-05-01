@@ -27,5 +27,8 @@ module MyApp
         routing_specs: false
     end
 
+    # エラーメッセージの日本語化のために追加
+    config.i18n.default_locale = :ja
+
   end
 end

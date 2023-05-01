@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) {User.new(name: 'Example User', nickname: 'Tom', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar')}
+  let(:user) {User.new(name: 'Example User', nickname: 'Tomy', email: 'user@example.com', password: 'foobar', password_confirmation: 'foobar')}
 
   it 'Userが有効であること' do
     expect(user).to be_valid
