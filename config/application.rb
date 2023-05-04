@@ -29,6 +29,7 @@ module MyApp
 
     # エラーメッセージの日本語化のために追加
     config.i18n.default_locale = :ja
+    config.active_model.i18n_customize_full_message = true
 
   end
 end
