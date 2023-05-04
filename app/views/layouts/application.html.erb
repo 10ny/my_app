@@ -15,6 +15,11 @@
 
   <%= render "layouts/header" %>
 
+  <%# エラーメッセージ %>
+  <% flash.each do |message_type, message| %>
+    <%= content_tag (:div, message, class: "alert alert-#{message_type} center") %>
+  <% end %>
+
   <%# main %>
     <main class="containter">
       <div class="container main">

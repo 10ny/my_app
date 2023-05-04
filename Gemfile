@@ -2,6 +2,8 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails",           "7.0.4"
+gem "i18n",            "~> 1.13"  # 日本語化gem
+gem "rails-i18n",       "7.0.6"  # 日本語化gem
 gem "bcrypt",          "3.1.18"
 gem 'bootstrap',       '~> 5.3.0.alpha3'
 gem 'jquery-rails'
