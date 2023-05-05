@@ -1,11 +1,11 @@
 <header class="container-fluid navbar sticky-top">
       <div class="container">
-        <%= link_to image_tag("Servelogo", alt: "Serve logo", width: "160"), "/" %>
+        <%= link_to image_tag("Servelogo.png", alt: "Serve logo", width: "160"), "/" %>
         <nav>
           <ul class="nav justify-contents-end">
             <li><%= link_to "Serveについて", "about", class: "nav-link" %></li>
             <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
-            <li><%= link_to "ログイン", "new_user_path", class: "nav-link" %></li>
+            <li><%= link_to "ログイン", "users_path", class: "nav-link" %></li>
           </ul>
         </nav>
       </div>
