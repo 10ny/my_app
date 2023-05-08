@@ -1,0 +1,23 @@
+<% provide(:title, "ログイン") %>
+
+<div class="container form-title">
+  <h1 class="center">ログイン</h1>
+</div>
+<div class="container signup-form">
+  <div class="mb-3">
+  <%= form_with(url: login_path, scope: :session) do |f| %>
+
+    <%= f.label :email, "メールアドレス", class: "form-label required" %>
+    <%= f.email_field :email, class: "form-control" %>
+
+    <%= f.label :password, "パスワード", class: "form-label required" %>
+    <%= f.password_field :password, class: "form-control" %>
+
+    <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
+
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <% end %>
+  <h6 class="center">OR</h6>
+  <%= link_to("新規登録", signup_path, class: "btn btn-secondary") %>
+  </div>
+</div>

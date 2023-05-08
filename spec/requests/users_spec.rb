@@ -28,9 +28,6 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status :unprocessable_entity
       expect(response).to render_template("users/new")
       
-
-      # expect(page).to have_selector 'div#error_explanation'
-      # expect(page).to have_selector 'div.alert-danger'
     end
   end
 
