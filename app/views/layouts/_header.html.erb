@@ -7,26 +7,32 @@
             <li><%= link_to "新規投稿", "#", class: "nav-link" %></li>
             <li><%= link_to "投稿一覧", "#", class: "nav-link" %></li>
             <li>
-              <button type="button" class="navbar-toggler center" data-bs-toggle="collapse" data-bs-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
-              <span class="navbar-toggler-icon"></span>
+              <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse center" id="Navber">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <hr>
-                  <li><%= link_to "アカウント情報", "#", class: "nav-link" %></li>
-                  <hr>
-                  <li><%= link_to "カフェ検索", "#", class: "nav-link" %></li>
-                  <hr>
-                  <li><%= link_to "コラム", "#", class: "nav-link" %></li>
-                  <hr>
-                  <li><%= link_to "アプリについて", "about", class: "nav-link" %></li>
-                  <hr>
-                  <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
-                  <hr>
-                  <li><%= link_to "ログアウト", "logout", class: "nav-link" %></li>
-                  <hr>
-                </ul>
-              </div>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                  <h3 id="offcanvasRightLabel">Serve</h3>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body center">
+                  <ul>
+                    <hr>
+                    <li><%= link_to "マイページ", "#", class: "nav-link" %></li>
+                    <hr>
+                    <li><%= link_to "カフェ検索", "#", class: "nav-link" %></li>
+                    <hr>
+                    <li><%= link_to "コラム", "#", class: "nav-link" %></li>
+                    <hr>
+                    <li><%= link_to "アプリについて", "about", class: "nav-link" %></li>
+                    <hr>
+                    <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
+                    <hr>
+                    <li><%= link_to "ログアウト", "logout", class: "nav-link" %></li>
+                    <hr>
+                  </ul>
+                </div> <%# offcanvas-body %>
+              </div> <%# offcanvas offcanvas-end %>
             </li>
           </ul>
       </nav>
