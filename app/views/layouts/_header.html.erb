@@ -28,7 +28,7 @@
                     <hr>
                     <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
                     <hr>
-                    <li><%= link_to "ログアウト", "logout", class: "nav-link" %></li>
+                    <li><%= link_to "ログアウト", "logout", data: { "turbo-method": :delete }, class: "nav-link" %></li>
                     <hr>
                   </ul>
                 </div> <%# offcanvas-body %>
