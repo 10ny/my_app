@@ -16,8 +16,12 @@ body {
   // background-image: url(./images/coffeebeans.png);
 }
 
-.center{
+.center {
   text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 
@@ -32,8 +36,11 @@ header {
   .nav-link {
     color: $gray-900;
   }
-  .navbar-toggler {
-    margin: auto  20px;
+  .btn {
+    margin: auto 0 auto 20px;
+  }
+  ul {
+    list-style: none;
   }
 }
 

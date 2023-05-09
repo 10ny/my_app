@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    #user && user.authenticate(params[:session][:password])の省略形
+    if user&.authenticate(params[:session][:password])
       reset_session  #セッション固定攻撃対策のためログイン前にリセットすること
       log_in user
       redirect_to user
@@ -17,7 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    log_out
+    redirect_to root_url, status: :see_other
   end
 
 end
