@@ -58,13 +58,13 @@ footer {
 /* information */
 
 .information {
-  height: 30px;
+  height: 50px;
   color: $gray-900;
   background-color: #7DB9DE;
   p {
+    display: inline-block;
     font-size: 15px;
-    text-align: center;
-    padding: 7.5px auto 7.5px;
+    // vertical-align: middle;
   }
 }
 
@@ -115,4 +115,18 @@ main {
   p {
     font-size: 14px;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
