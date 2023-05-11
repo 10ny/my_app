@@ -27,21 +27,21 @@ __コーヒー豆メモアプリにあるような機能を投稿として記録
 <br>
 イメージ画像  
 <br>
-<img width="400" alt="トップページ" src="https://github.com/Juniquey/my_app/assets/107200906/41cd7502-0dac-439e-87a4-38618fdd744c">  
+<img width="400" alt="トップページ" src="https://github.com/Juniquey/my_app/assets/107200906/937627ce-3d4f-41b1-99ef-955577bc9b1b">  
 <br>
 <br>
 商品名・煎り度・豆の産地などを記録できる。  
 <br>
 イメージ画像  
 <br>
-<img width="400" alt="投稿ページ" src="https://github.com/Juniquey/my_app/assets/107200906/b176f33c-69ef-4166-be01-2c1559ba5fa3">  
+<img width="400" alt="投稿ページ" src="https://github.com/Juniquey/my_app/assets/107200906/35291dd7-5edc-4747-8182-d051dabb4a2e">  
 <br>
 <br>
 投稿詳細ページ  
 <br>
 イメージ画像  
 <br>
-<img width="400" alt="投稿詳細ページ" src="https://github.com/Juniquey/my_app/assets/107200906/14004912-6576-4a02-82d9-a7abace2e27a">  
+<img width="400" alt="投稿詳細ページ" src="https://github.com/Juniquey/my_app/assets/107200906/3500e45f-e496-48d2-b565-e6d2a231773c">  
 <br>
 <br>
 <br>
