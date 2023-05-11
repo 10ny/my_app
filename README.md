@@ -23,17 +23,23 @@ Ruby on Rails チュートリアルに沿って作成中
 <br>
 <br>
 _コーヒー豆メモアプリにあるような機能を投稿として記録できる_ アプリケーション。  
+<br>
 イメージ画像  
+<br>
 <img width="400" alt="トップページ" src="https://github.com/Juniquey/my_app/assets/107200906/41cd7502-0dac-439e-87a4-38618fdd744c">  
 <br>
 <br>
 商品名・煎り度・豆の産地などを記録できる。  
+<br>
 イメージ画像  
+<br>
 <img width="400" alt="投稿ページ" src="https://github.com/Juniquey/my_app/assets/107200906/b176f33c-69ef-4166-be01-2c1559ba5fa3">  
 <br>
 <br>
 投稿詳細ページ  
+<br>
 イメージ画像  
+<br>
 <img width="400" alt="投稿詳細ページ" src="https://github.com/Juniquey/my_app/assets/107200906/14004912-6576-4a02-82d9-a7abace2e27a">  
 <br>
 <br>
@@ -41,8 +47,10 @@ _コーヒー豆メモアプリにあるような機能を投稿として記録�
 
 ## 開発環境  
 <br>
+
 * Visual Studio Code  
 <br>
+
 * バックエンド　Ruby 3.1.4
 * フレームワーク　Ruby on Rails 7.0.4
 * フロントエンド　HTML/scss/JavaScript/Bootstrap
@@ -83,6 +91,7 @@ UU _1000_ 人
 
 ### 実装予定  
 <br>
+
 アプリ機能  
 * PDF出力(未定)
 * カフェ検索カテゴリー
@@ -91,6 +100,7 @@ UU _1000_ 人
 etc.  
 <br>
 <br>
+
 今後導入したい環境
 * CircleCI(CI/CDパイプライン)の導入
 コードがpushされるたびにテストが自動的に実行されるようにして、mainブランチにコードがマージされた際にはrenderにデプロイが実行されるように設定する  
