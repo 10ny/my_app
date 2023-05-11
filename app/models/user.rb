@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 20 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }, confirmation: { type: :password, message: :confirmation}
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :confirmation}
 
 
   # 渡された文字列のハッシュ値を返す

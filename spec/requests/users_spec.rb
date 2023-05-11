@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Users", type: :request do
   let (:base_title) {"Serve"}
 
+
+
   describe '#signup' do
     it 'HTTPレスポンスを正常に返すこと User Signup' do
       get signup_path
@@ -15,7 +17,9 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe '#post /users #create' do
+
+
+  describe 'POST /users #create' do
     it '無効なユーザーは登録されないこと' do
       expect {
         post users_path, params: { user: { name: "",
@@ -33,10 +37,10 @@ RSpec.describe "Users", type: :request do
 
   context '有効な値の場合' do
     let(:user_params) { { user: { name: "Example User",
-                                nickname: "Example",
-                                email: "user@example.com",
-                                password: "password",
-                                password_confirmation: "password" } } }
+                                  nickname: "Example",
+                                  email: "user@example.com",
+                                  password: "password",
+                                  password_confirmation: "password" } } }
       it '登録されていること' do
         expect {
           post users_path, params: user_params
@@ -60,4 +64,99 @@ RSpec.describe "Users", type: :request do
       end
     end
 
+
+
+  describe 'GET users/id/edit' do
+    let(:user) { FactoryBot.create(:user) }
+    
+    it 'HTTPレスポンスを正常に返すこと User edit' do
+      log_in user
+      get edit_user_path(user)
+      expect(response).to have_http_status :ok
+    end
+
+    it 'アカウント編集 | Serve が含まれていること' do
+      log_in user
+      get edit_user_path(user)
+      expect(response.body).to include "アカウント編集 | #{base_title}"
+    end
+
+    context '未ログインの場合' do
+      it 'flashが空ではないこと' do
+        get edit_user_path(user)
+        expect(flash).to_not be_empty
+      end
+
+      it '' do
+        get edit_user_path(user)
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
+
+
+
+  describe 'PATCH /users' do
+    let(:user) { FactoryBot.create(:user) }
+
+    context '未ログインの場合' do
+      it 'flashが空ではないこと' do
+        patch user_path(user), params:  { user: { name: user.name,
+                                                  email: user.email } }
+        expect(flash).to_not be_empty
+      end
+
+      it '' do
+        patch user_path(user), params:  { user: { name: user.name,
+                                                  email: user.email } }
+        expect(response).to redirect_to login_path
+      end
+    end
+
+    context '無効な値の場合' do
+      before do
+        log_in user
+        patch user_path(user), params: { user: { name: '',
+                                                  email: 'foo@invlid',
+                                                  password: 'foo',
+                                                  password_confirmation: 'bar' } }
+        end
+
+      it '更新できないこと' do
+        user.reload
+        expect(user.name).to_not eq ''
+        expect(user.nickname).to_not eq ''
+        expect(user.email).to_not eq 'foo@invlid'
+        expect(user.password).to_not eq 'foo'
+        expect(user.password_confirmation).to_not eq 'bar'
+      end
+
+      it '更新アクション後にeditビューが表示されること' do
+        expect(response.body).to include "アカウント編集 | #{base_title}"
+      end
+    end
+
+    context '有効な値の場合' do
+      before do
+        @name = 'Foo Bar'
+        @nickname = 'FooBarBaz'
+        @email = 'foo@bar.com'
+        log_in user
+        patch user_path(user), params:  { user: { name: @name,
+                                                  nickname: @nickname,
+                                                  email: @email,
+                                                  password: '',
+                                                  password_confirmation: '' } }
+      end
+
+      it '更新できること' do
+        user.reload
+        expect(user.name).to eq @name
+        expect(user.nickname).to eq @nickname
+        expect(user.email).to eq @email
+      end
+
+    end
+  end
+  
 end
