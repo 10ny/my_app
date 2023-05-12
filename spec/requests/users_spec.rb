@@ -66,7 +66,7 @@ RSpec.describe "Users", type: :request do
 
 
 
-  describe 'GET users/id/edit' do
+  describe 'GET users/{id}/edit' do
     let(:user) { FactoryBot.create(:user) }
     
     it 'HTTPレスポンスを正常に返すこと User edit' do
@@ -87,11 +87,36 @@ RSpec.describe "Users", type: :request do
         expect(flash).to_not be_empty
       end
 
-      it '' do
+      it '未ログインユーザはログインページにリダイレクトされること' do
         get edit_user_path(user)
         expect(response).to redirect_to login_path
       end
+
+      it 'ログイン後アカウント編集ページにリダイレクトされること' do
+        get edit_user_path(user)
+        log_in user
+        expect(response).to redirect_to edit_user_path(user)
+      end
     end
+
+    context '別ユーザの場合' do
+      let(:other_user) { FactoryBot.create(:other) }
+
+      it 'flashが空であること' do
+        log_in other_user
+        get user_path(other_user) # 一度ユーザページへ遷移してからアカウント編集へ
+        get edit_user_path(user)
+        expect(flash).to be_empty
+      end
+
+      it 'ルートパスにリダイレクトされること' do
+        log_in other_user
+        get user_path(other_user) # 一度ユーザページへ遷移してからアカウント編集へ
+        get edit_user_path(user)
+        expect(response).to redirect_to root_path
+      end
+    end
+
   end
 
 
@@ -106,7 +131,7 @@ RSpec.describe "Users", type: :request do
         expect(flash).to_not be_empty
       end
 
-      it '' do
+      it '未ログインユーザはログインページにリダイレクトされること' do
         patch user_path(user), params:  { user: { name: user.name,
                                                   email: user.email } }
         expect(response).to redirect_to login_path
@@ -154,6 +179,25 @@ RSpec.describe "Users", type: :request do
         expect(user.name).to eq @name
         expect(user.nickname).to eq @nickname
         expect(user.email).to eq @email
+      end
+    
+      context '別ユーザの場合' do
+        let(:other_user) { FactoryBot.create(:other) }
+
+        before do
+          log_in other_user
+          get user_path(other_user) # 一度ユーザページへ遷移してからアカウント編集へ
+          patch user_path(user), params:  { user: { name: user.name,
+                                                    email: user.email } }
+        end
+  
+        it 'flashが空であること' do
+          expect(flash).to be_empty
+        end
+  
+        it 'ルートパスにリダイレクトされること' do
+          expect(response).to redirect_to root_path
+        end
       end
 
     end

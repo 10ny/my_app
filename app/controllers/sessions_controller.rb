@@ -8,11 +8,12 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     #user && user.authenticate(params[:session][:password])の省略形
     if user&.authenticate(params[:session][:password])
+      forwarding_url = session[:forwarding_url]
       reset_session  #セッション固定攻撃対策のためログイン前にリセットすること
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       log_in user
       flash[:success] = "ログインしました。"
-      redirect_to user
+      redirect_to forwarding_url || user
     else
       flash.now[:danger] = "メールアドレス または パスワード が間違っています。"
       render 'new', status: :unprocessable_entity
