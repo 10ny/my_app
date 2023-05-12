@@ -18,17 +18,17 @@
                 <div class="offcanvas-body center">
                   <ul>
                     <hr>
-                    <li><%= link_to "マイページ", "#", class: "nav-link" %></li>
+                    <li><%= link_to "マイページ", user_path(current_user), class: "nav-link" %></li>
                     <hr>
                     <li><%= link_to "カフェ検索", "#", class: "nav-link" %></li>
                     <hr>
                     <li><%= link_to "コラム", "#", class: "nav-link" %></li>
                     <hr>
-                    <li><%= link_to "アプリについて", "about", class: "nav-link" %></li>
+                    <li><%= link_to "アプリについて", about_path, class: "nav-link" %></li>
                     <hr>
-                    <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
+                    <li><%= link_to "問い合わせ", contact_path, class: "nav-link" %></li>
                     <hr>
-                    <li><%= link_to "ログアウト", "logout", data: { "turbo-method": :delete }, class: "nav-link" %></li>
+                    <li><%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete }, class: "nav-link" %></li>
                     <hr>
                   </ul>
                 </div> <%# offcanvas-body %>

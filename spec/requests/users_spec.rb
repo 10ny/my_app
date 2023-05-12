@@ -64,7 +64,12 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-
+  describe 'GET /users' do
+    it 'ログインユーザでなければログインページへリダイレクトされること index' do
+      get users_path
+      expect(response).to redirect_to login_path
+    end
+  end
 
   describe 'GET users/{id}/edit' do
     let(:user) { FactoryBot.create(:user) }
