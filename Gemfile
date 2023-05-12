@@ -2,9 +2,10 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails",           "7.0.4"
+gem "kaminari"                    #ページネーション用gem
 gem "i18n",            "~> 1.13"  # 日本語化gem
-gem "rails-i18n",       "7.0.6"  # 日本語化gem
-gem "bcrypt",          "3.1.18"
+gem "rails-i18n",       "7.0.6"   # 日本語化gem
+gem "bcrypt",          "3.1.18"   # ハッシュ化gem
 gem 'bootstrap',       '~> 5.3.0.alpha3'
 gem 'jquery-rails'
 gem "sassc-rails",     "2.1.2"
@@ -19,6 +20,7 @@ gem "bootsnap",        "1.12.0", require: false
 group :development, :test do
   gem "sqlite3", "1.4.2"
   gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
+  gem "faker",           "2.21.0" # 開発環境のみユーザデータサンプル作成
 end
 
 group :development do

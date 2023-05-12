@@ -1,0 +1,16 @@
+<% provide(:title, "ユーザー一覧") %>
+<div class="container mypage row">
+  <h1 class="center">ユーザー一覧</h1>
+  <ul class="users">
+    <% @users.each do |user| %>
+      <li>
+        <%#= link_to user.image, class: "user-image" %>
+        <%= link_to user.name, user, class: "nav-link" %>
+      </li>
+    <% end %>
+  </ul>
+  <div>
+    <%#= page_entries_info @users %>
+    <%= paginate @users %>
+  </div>
+</div>
