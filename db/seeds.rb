@@ -11,7 +11,8 @@ User.create!( name:  "Jun Yamaguchi",
               nickname: "Juny",
               email: "jun_7104@outlook.jp",
               password:              "foobarbaz",
-              password_confirmation: "foobarbaz")
+              password_confirmation: "foobarbaz",
+              admin: true)
 
 # 追加のユーザーをまとめて生成する
 50.times do |n|
