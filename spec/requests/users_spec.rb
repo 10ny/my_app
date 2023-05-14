@@ -71,6 +71,28 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+  describe 'pagination ページネーション' do
+    before do
+      30.times do
+        FactoryBot.create(:continuous_users)
+      end
+      log_in user
+      get users_path
+    end
+
+    let(:user) { FactoryBot.create(:user) }
+
+    it 'div.paginationが存在していること' do
+      expect(response.body).to include '<ul class="pagination">'
+    end
+
+    # it 'ユーザごとのリンクが存在していること' do
+    #   User.page(1).each do |user|
+    #     expect(response.body).to include "<a href=\"#{user_path(user)}\">"
+    #   end
+    # end
+  end
+
   describe 'GET users/{id}/edit' do
     let(:user) { FactoryBot.create(:user) }
     
@@ -204,7 +226,40 @@ RSpec.describe "Users", type: :request do
           expect(response).to redirect_to root_path
         end
       end
+    end
 
+    it 'admin属性は変更できないこと' do
+      log_in user = FactoryBot.create(:other)
+      expect(user).to_not be_admin
+
+      patch user_path(user), params:  { user: { password: 'password',
+                                                password_confirmation: 'password',
+                                                admin: true }}
+      
+      user.reload
+      expect(user).to_not be_admin
+    end
+  end
+
+  describe 'DELETE users/id' do
+    let!(:user) { FactoryBot.create(:user) }
+    let(:othet) { FactoryBot.create(:other) }
+
+    context '未ログインの場合' do
+      it '削除できないこと' do
+        expect {
+          delete user_path(user)
+        }.to_not change(User, :count)
+      end
+
+      it 'ログインページにリダイレクトされること' do
+        delete user_path(user)
+        expect(response).to redirect_to login_path
+      end
+    end
+
+    context '管理者admin`ユーザではない場合' do
+      
     end
   end
   
