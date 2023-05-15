@@ -21,4 +21,21 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
+
+  describe '#index' do
+    let!(:admin) { FactoryBot.create(:user) }
+    let(:not_admin) { FactoryBot.create(:other) }
+
+    # it 'adminユーザなら削除リンクが表示されていること' do
+    #   log_in admin
+    #   visit users_path
+    #   expect(page).to have_link '削除'
+    # end
+
+    it 'adminではないユーザなら削除リンクが表示されていないこと' do
+      log_in not_admin
+      visit users_path
+      expect(page).to_not have_link '削除'
+    end
+  end
 end
