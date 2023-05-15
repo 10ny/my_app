@@ -73,6 +73,6 @@ class UsersController < ApplicationController
 
     # 管理者ユーザか確認
     def admin_user
-      redirect_to users_url, status: :see_other unless current_user.admin?
+      redirect_to root_url, status: :see_other unless current_user.admin?
     end
 end
