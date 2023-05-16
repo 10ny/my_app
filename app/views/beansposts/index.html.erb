@@ -1,0 +1,11 @@
+<% provide(:title, "投稿一覧") %>
+
+  <div class="container posts_page center row">
+    <div class="col">
+        <h1>投稿一覧</h1>
+        <ol class="beansposts">
+          <%= render @beansposts %>
+        </ol>
+        <%= paginate @beansposts %>
+    </div>
+  </div>

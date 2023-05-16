@@ -31,5 +31,8 @@ module MyApp
     config.i18n.default_locale = :ja
     config.active_model.i18n_customize_full_message = true
 
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Asia/Tokyo'
+    
   end
 end

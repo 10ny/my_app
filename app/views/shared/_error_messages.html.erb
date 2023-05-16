@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   
   <%# アイコン表示コード %>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -18,7 +18,7 @@
       <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#exclamation-triangle-fill"/></svg>
       <div>
         <ul>
-        <% @user.errors.full_messages.each do |msg| %>
+        <% object.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>

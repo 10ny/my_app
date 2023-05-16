@@ -98,11 +98,6 @@ main {
 }
 
 
-/* home */
-// .login-btn {
-//   // background-color: $orange-500;
-// }
-
 
 /* Form */
 .form-title {
@@ -114,7 +109,6 @@ main {
     font-size: 14pt;
     color: #FF3399;
   }
-
   .asterisk {
     color: #FF3399;
   }
@@ -169,6 +163,10 @@ main {
 
 /* pagination */
 
+.pagination {
+  justify-content: center;
+}
+
 .pagination>li>a {
   color: $gray-700;
 
@@ -185,3 +183,19 @@ main {
 //   // background: #81C7D4;     /*背景の色を変える*/
 // //   // border-radius: 15px;
 // }
+
+
+
+/* my_page */
+.mypage {
+  ol {
+    list-style: none;
+  }
+}
+
+/* posts_page */
+.posts_page {
+  ol {
+    list-style: none;
+  }
+}

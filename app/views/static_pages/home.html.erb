@@ -1,23 +1,27 @@
-<div class="top-page">
-  <div class="row">
-    <div class="col-6">
-      <h2>
-        Find<br>
-        New<br>
-        Beans.
-      </h2>
+<% if logged_in? %>
+  <%= render template: "beansposts/index" %>
+<% else %>
+  <div class="top-page">
+    <div class="row">
+      <div class="col-6">
+        <h2>
+          Find<br>
+          New<br>
+          Beans.
+        </h2>
+      </div>
+      <div class="col-6">
+        <h2>
+          未知の<br>
+          豆との<br>
+          出会い
+        </h2>
+      </div>
     </div>
-    <div class="col-6">
-      <h2>
-        未知の<br>
-        豆との<br>
-        出会い
-      </h2>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
+      <br>
+      <%= link_to "Serveについて", about_path, class: "btn btn-info" %>
     </div>
   </div>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
-    <br>
-    <%= link_to "Serveについて", about_path, class: "btn btn-info" %>
-  </div>
-</div>
+<% end %>

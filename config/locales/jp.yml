@@ -36,3 +36,9 @@ ja:
           display_entries: '%{entry_name}の1-%{count}件を表示中 / 合計%{count}件'
         more_pages:
           display_entries: '%{entry_name}の%{first}-%{last}件を表示中 / 合計%{total}件'
+
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d %H:%M"
