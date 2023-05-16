@@ -7,7 +7,7 @@ FactoryBot.define do
   factory :most_recent, class: Beanspost do
     content { 'Writing a short test' }
     created_at { Time.zone.now }
-    user { association :user, nickname: 'Example', email: 'recent@example.com' }
+    user { association :user,nickname: 'Example', email: 'recent@example.com' }
   end
 end
 

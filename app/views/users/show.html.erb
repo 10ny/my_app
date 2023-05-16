@@ -1,5 +1,7 @@
 <% provide(:title, "マイページ") %>
-<div class="container mypage row">
+
+<div class="container mypage">
+
   <div class="container">
     <div class="row">
       <div class="col-3">
@@ -10,9 +12,22 @@
       </div>
     </div>
   </div>
-  <div class="conrtainer">
-    <%= @user.name %>
+
+  <div class="container center row">
+    <div class="col">
+      <% if @user.beansposts.any? %>
+        <h3>マメモ(<%= @user.beansposts.count %>)</h3>
+        <ol class="beansposts">
+          <%= render @beansposts %>
+        </ol>
+        <%= paginate @beansposts %>
+      <% end %>
+    </div>
   </div>
-  <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-6" %>
-  <%= link_to "アカウント削除", edit_user_path(@user), class: "btn btn-danger col-6" %> <%# リンクは変える %>
+
+  <div class="container row">
+      <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-6" %>
+      <%= link_to "アカウント削除", edit_user_path(@user), class: "btn btn-danger col-6" %> <%# リンクは変える %>
+  </div>
+
 </div>
