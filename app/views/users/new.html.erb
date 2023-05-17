@@ -23,6 +23,9 @@
     <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label required" %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
 
+    <%= f.label :image, "プロフィール画像", class: "form-label image" %>
+    <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
+
     <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
 
     <%= f.submit "新規登録", class: "btn btn-primary" %>

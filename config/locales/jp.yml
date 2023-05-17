@@ -7,6 +7,10 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
+      
+      beanspost:
+        content: "コメント"
+      
       errors:
         model:
           user:

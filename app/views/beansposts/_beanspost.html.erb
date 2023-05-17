@@ -1,10 +1,15 @@
 <li id="beanspost-<%= beanspost.id %>">
   <span class="user"><%= link_to beanspost.user.nickname, beanspost.user %></span>
-  <span class="content"><%= beanspost.content %></span>
+  <span class="content">
+    <%= image_tag beanspost.image if beanspost.image.attached?%>
+    <%= beanspost.content %></span>
   <span class="timestamp">
     <%= l beanspost.created_at, format: :short %>
     <%= time_ago_in_words(beanspost.created_at) %>前 <%# 記述なしでも可 %>
   </span>
+  <% if current_user?(beanspost.user) %>
+    <%= link_to "削除", beanspost, data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+  <% end %>
 </li>
 
 <%# カード形式に改良 %>
