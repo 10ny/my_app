@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :beansposts, dependent: :destroy
+  has_one_attached :image
+
   attr_accessor :remember_token
   before_save  { email.downcase! }
   validates :name, presence: true, length: {maximum: 20}
@@ -9,6 +11,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :confirmation}
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"},
+                      size: { less_than: 5.megabytes, message: "5メガバイト以下の画像のみアップロード可能です。"}
 
 
   # 渡された文字列のハッシュ値を返す
@@ -45,5 +49,11 @@ class User < ApplicationRecord
   # ユーザのログイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Beanspost.where("user_id = ?", id)
   end
 end
