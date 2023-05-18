@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :beansposts, dependent: :destroy
-  has_one_attached :image
+  has_one_attached :image do |attachable|
+    attachable.variant :display, resize_to_limit: [200, 200]
+  end
 
   attr_accessor :remember_token
   before_save  { email.downcase! }

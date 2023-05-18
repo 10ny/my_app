@@ -1,7 +1,9 @@
 <li id="beanspost-<%= beanspost.id %>">
   <span class="user"><%= link_to beanspost.user.nickname, beanspost.user %></span>
   <span class="content">
-    <%= image_tag beanspost.image if beanspost.image.attached?%>
+    <% if beanspost.image.attached? %>
+      <%= image_tag beanspost.image.variant(:display)  %>
+    <% end %>
     <%= beanspost.content %></span>
   <span class="timestamp">
     <%= l beanspost.created_at, format: :short %>
