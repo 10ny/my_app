@@ -33,6 +33,9 @@ module MyApp
 
     # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
+
+    # 画像リサイズ用
+    config.active_storage.variant_processor = :mini_magick
     
   end
 end

@@ -1,6 +1,8 @@
 class Beanspost < ApplicationRecord
   belongs_to :user
-  has_one_attached :image
+  has_one_attached :image do |attachable|
+    attachable.variant :display, resize_to_limit: [200, 200]
+  end
 
   # 投稿の表示順を降順に指定
   default_scope -> { order(created_at: :desc) }
