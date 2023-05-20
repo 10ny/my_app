@@ -1,5 +1,10 @@
 class User < ApplicationRecord
   has_many :beansposts, dependent: :destroy
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+
   has_one_attached :image do |attachable|
     attachable.variant :display, resize_to_limit: [200, 200]
   end
@@ -14,7 +19,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :confirmation}
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"},
-                      size: { less_than: 5.megabytes, message: "5メガバイト以下の画像のみアップロード可能です。"}
+                      size: { less_than: 5.megabytes, message: "5MB以下の画像のみアップロード可能です。"}
 
 
   # 渡された文字列のハッシュ値を返す
@@ -58,4 +63,20 @@ class User < ApplicationRecord
   def feed
     Beanspost.where("user_id = ?", id)
   end
+
+  # ユーザをフォローする
+  def follow(other_user)
+    following << other_user unless self == other_user
+  end
+
+  # ユーザのフォローを解除する
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  # ユーザをフォローしていればtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
 end
