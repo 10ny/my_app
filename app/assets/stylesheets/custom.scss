@@ -99,6 +99,54 @@ main {
 
 
 
+/* my_page */
+.mypage {
+  ol {
+    list-style: none;
+  }
+}
+
+/* posts_page */
+.posts_page {
+  ol {
+    list-style: none;
+  }
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 30;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 2px solid $gray-300;
+    color: $gray-500;
+    text-decoration: none;
+    display: block;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      color: #7DB9DE;
+    }
+  }
+  // strong {
+  //   display: block;
+  // }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+}
+
+.users.follow {
+  padding: 0;
+}
+
+
 /* Form */
 .form-title {
   font-weight: bold;
@@ -112,6 +160,8 @@ main {
   .asterisk {
     color: #FF3399;
   }
+
+
 
 /* Sign up form */
 .signup-form {
@@ -183,19 +233,3 @@ main {
 //   // background: #81C7D4;     /*背景の色を変える*/
 // //   // border-radius: 15px;
 // }
-
-
-
-/* my_page */
-.mypage {
-  ol {
-    list-style: none;
-  }
-}
-
-/* posts_page */
-.posts_page {
-  ol {
-    list-style: none;
-  }
-}
