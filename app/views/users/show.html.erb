@@ -9,6 +9,8 @@
       </div>
       <div class="col-9">
         <h2><%= @user.nickname %></h2>
+        <div><%= render "shared/stats" %></div>
+        <div><%= render 'follow_form' if logged_in? %></div>
       </div>
     </div>
   </div>
