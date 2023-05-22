@@ -282,5 +282,24 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  describe 'GET users/{id}/following' do
+    let(:user) { FactoryBot.create(:user) }
+
+    it '未ログインの場合ログインページへリダイレクトされること' do
+      get following_user_path(user)
+      expect(response).to redirect_to login_path
+    end
+  end
+
+  describe 'GET users/{id}/followers' do
+    let(:user) { FactoryBot.create(:user) }
+
+    it '未ログインの場合ログインページへリダイレクトされること' do
+      get followers_user_path(user)
+      expect(response).to redirect_to login_path
+    end
+  end
+
   
 end
