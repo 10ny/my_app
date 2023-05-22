@@ -1,0 +1,27 @@
+<% provide(:title, @title)%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>image</h2> <%# 画像はここに挿入 %>
+    </div>
+    <div class="col-9">
+      <h2><%= @user.nickname %></h2>
+      <div><%= render "shared/stats" %></div>
+      <div><%= render 'follow_form' if logged_in? %></div>
+    </div>
+  </div>
+</div>
+
+<div class="container center row">
+  <h3><%= @title %></h3>
+  <% if @users.any? %>
+  <ul class="users follow">
+    <%= render @users %>
+  </ul>
+  <div>
+    <%#= page_entries_info @users %>
+    <%= paginate @users %>
+  </div>
+  <% end %>
+</div>

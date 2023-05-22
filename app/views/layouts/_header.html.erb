@@ -4,8 +4,9 @@
       <% if logged_in? %>
       <nav class="navbar bg-body-tertiary">
           <ul class="nav justify-contents-end">
-            <li><%= link_to "新規投稿", "#", class: "nav-link" %></li>
-            <li><%= link_to "投稿一覧", "#", class: "nav-link" %></li>
+            <li><%= link_to "新規投稿", new_beanspost_path, class: "nav-link" %></li>
+            <li><%= link_to "投稿一覧", beansposts_path, class: "nav-link" %></li>
+            <li><%= link_to "マイページ", user_path(current_user), class: "nav-link" %></li>
             <li>
               <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <span class="navbar-toggler-icon"></span>
@@ -17,8 +18,6 @@
                 </div>
                 <div class="offcanvas-body center">
                   <ul>
-                    <hr>
-                    <li><%= link_to "マイページ", user_path(current_user), class: "nav-link" %></li>
                     <hr>
                     <li><%= link_to "カフェ検索", "#", class: "nav-link" %></li>
                     <hr>
