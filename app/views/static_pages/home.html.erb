@@ -2,7 +2,7 @@
   <h1 class="center">ログイン済みトップページ</h1>
   <div class="container posts_page center row">
     <div class="col">
-        <h2>投稿一覧</h2>
+        <h2>フォロー中 投稿一覧</h2>
         <% if @beansposts.any?%>
         <ol class="beansposts">
           <%= render @beansposts %>
@@ -11,10 +11,6 @@
         <% end %>
     </div>
   </div>
-  <h2 class="center">feeds</h2>
-  <div class="col-md-8 center">
-      <%= render 'shared/feed' %>
-    </div>
 <% else %>
   <div class="top-page">
     <div class="row">

@@ -86,5 +86,36 @@ RSpec.describe User, type: :model do
       expect(user.authenticated?('')).to be_falsy
     end
   end
+
+
+  describe '#feed' do
+    let(:posted_by_user) { FactoryBot.create(:post_by_user) }
+    let(:posted_by_another) { FactoryBot.create(:post_by_another) }
+    let(:posted_by_other) { FactoryBot.create(:post_by_other) }
+    let(:user) { posted_by_user.user }
+    let(:another) { posted_by_another.user }
+    let(:other) { posted_by_other.user }
   
+    before do
+      user.follow(another)
+    end
+  
+    it 'フォローしているユーザの投稿が表示されること' do
+      another.beansposts.each do |post_following|
+        expect(user.feed.include?(post_following)).to be_truthy
+      end
+    end
+  
+    it '自分自身の投稿が表示されること' do
+      user.beansposts.each do |post_self|
+        expect(user.feed.include?(post_self)).to be_truthy
+      end
+    end
+  
+    it 'フォローしていないユーザの投稿は表示されないこと' do
+      other.beansposts.each do |post_unfollowed|
+        expect(user.feed.include?(post_unfollowed)).to be_falsey
+      end
+    end
+  end
 end
