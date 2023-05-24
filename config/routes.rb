@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :account_activations, only: [:edit]
   # get    "/newpost",   to: "beansposts#new"
   resources :beansposts,    only: [:index, :new, :create, :destroy]
   resources :relationships,  only: [:create, :destroy]

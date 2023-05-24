@@ -13,8 +13,11 @@ class User < ApplicationRecord
     attachable.variant :display, resize_to_limit: [200, 200]
   end
 
-  attr_accessor :remember_token
-  before_save  { email.downcase! }
+  attr_accessor :remember_token, :activation_token
+  before_save   :downcase_email
+  before_create :create_activation_digest
+
+
   validates :name, presence: true, length: {maximum: 20}
   validates :nickname, presence: true, length: {maximum: 20, minimum:4}, uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -85,5 +88,17 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  private
+    # メールアドレスをすべて小文字にする
+    def downcase_email
+      self.email = email.downcase
+    end
+
+    #アカウント有効化トークンの作成と代入
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 
 end

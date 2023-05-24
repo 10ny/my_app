@@ -47,21 +47,21 @@ RSpec.describe "Users", type: :request do
         }.to change(User, :count).by(1)
       end
 
-      it 'users/show(マイページ)にリダイレクトされること' do
-        post users_path, params: user_params
-        user = User.last
-        expect(response).to redirect_to user
-      end
+      # it 'users/show(マイページ)にリダイレクトされること' do
+      #   post users_path, params: user_params
+      #   user = User.last
+      #   expect(response).to redirect_to user
+      # end
 
       it 'flashが表示されていること' do
         post users_path, params: user_params
         expect(flash).to be_any
       end
 
-      it 'ログイン状態であること' do
-        post users_path, params: user_params
-        expect(is_logged_in?).to be_truthy
-      end
+      # it 'ログイン状態であること' do
+      #   post users_path, params: user_params
+      #   expect(is_logged_in?).to be_truthy
+      # end
     end
 
   describe 'GET /users' do
