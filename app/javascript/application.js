@@ -6,4 +6,5 @@
 
 import "@hotwired/turbo-rails"
 import "controllers"
+// import "custom/custom"
 // import "custom/image_upload"
