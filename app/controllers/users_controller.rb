@@ -20,10 +20,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.image.attach(params[:user][:image])
     if @user.save
-      reset_session  #セッション固定攻撃対策のためログイン前にリセットすること
-      log_in @user
-      flash[:success] = "登録が完了しました！！"
-      redirect_to @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "メールからアカウントの有効化を行なってください"
+      redirect_to root_url
     else
       render "new", status: :unprocessable_entity
     end

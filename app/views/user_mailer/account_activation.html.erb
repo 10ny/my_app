@@ -1,0 +1,11 @@
+<h1>Serve</h1>
+
+<p><%= @user.name %>さん</p>
+
+<p>
+Serveへようこそ!!<br>
+下記リンクより アカウントの有効化を行なってください!!
+</p>
+
+<%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
+                                                            email: @user.email) %>

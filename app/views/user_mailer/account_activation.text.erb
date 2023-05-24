@@ -1,0 +1,8 @@
+Serve
+
+<%= @user.name %>さん
+
+Serveへようこそ!!
+下記リンクより アカウントの有効化を行なってください!!
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
