@@ -1,5 +1,5 @@
 <li>
-  <%#= link_to user.image, class: "user-image" %>
+  <%#= link_to user.image, user, class: "user-image" %>
   <%= link_to user.nickname, user %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "削除", user, data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
