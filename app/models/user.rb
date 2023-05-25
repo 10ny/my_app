@@ -92,10 +92,10 @@ class User < ApplicationRecord
 
   # ユーザを有効化する
   def activate
-    # update_attribute(:activated,    true)
-    # update_attribute(:activated_at, Time.zone.now)
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
     # 省略して記述↓
-    update_columms(activated: true, activated_at: Time.zone.now)
+    # update_columms(activated: true, activated_at: Time.zone.now)
   end
 
   # 有効化のメールを送信する
