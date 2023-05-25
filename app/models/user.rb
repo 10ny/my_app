@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 20}
   validates :nickname, presence: true, length: {maximum: 20, minimum:4}, uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 20 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+  validates :email, presence: true, length: { maximum: 30 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :confirmation}
@@ -55,9 +55,10 @@ class User < ApplicationRecord
   end
 
   # 渡されたトークンとダイジェストが一致したらtrueを返す
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # ユーザのログイン情報を破棄する
@@ -87,6 +88,19 @@ class User < ApplicationRecord
   # ユーザをフォローしていればtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # ユーザを有効化する
+  def activate
+    # update_attribute(:activated,    true)
+    # update_attribute(:activated_at, Time.zone.now)
+    # 省略して記述↓
+    update_columms(activated: true, activated_at: Time.zone.now)
+  end
+
+  # 有効化のメールを送信する
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
 
   private
