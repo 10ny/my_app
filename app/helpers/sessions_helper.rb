@@ -25,7 +25,7 @@ module SessionsHelper
     elsif (user_id = cookies.encrypted[:user_id])
       User.find_by(id: user_id)
         # user && user.authenticated?(cookies[:remember_token])の省略形
-      if user&.authenticated?(cookies[:remember_token])
+      if user&.authenticated?(:remamber, cookies[:remember_token])
         log_in user
         @current_user = user
       end

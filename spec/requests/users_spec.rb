@@ -36,6 +36,9 @@ RSpec.describe "Users", type: :request do
   end
 
   context '有効な値の場合' do
+    before do
+      ActionMailer::Base.deliveries.clear
+    end
     let(:user_params) { { user: { name: "Example User",
                                   nickname: "Example",
                                   email: "user@example.com",
@@ -62,13 +65,35 @@ RSpec.describe "Users", type: :request do
       #   post users_path, params: user_params
       #   expect(is_logged_in?).to be_truthy
       # end
-    end
+
+      it 'メールが1件存在すること' do
+        post users_path, params: user_params
+        expect(ActionMailer::Base.deliveries.size).to eq 1
+      end
+
+      it '登録時点ではactivateされていないこと' do
+        post users_path, params: user_params
+        expect(User.last).to_not be_activated
+      end
+
+  end
 
   describe 'GET /users' do
+
+    let(:user) { FactoryBot.create(:user) }
+
     it 'ログインユーザでなければログインページへリダイレクトされること index' do
       get users_path
       expect(response).to redirect_to login_path
     end
+
+    it 'activateされていないユーザは表示されないこと' do
+      not_activated_user = FactoryBot.create(:nonactivate)
+      log_in user
+      get users_path
+      expect(response.body).to_not include not_activated_user.name
+    end
+
   end
 
   describe 'pagination ページネーション' do
@@ -91,6 +116,17 @@ RSpec.describe "Users", type: :request do
     #     expect(response.body).to include "<a href=\"#{user_path(user)}\">"
     #   end
     # end
+  end
+
+  describe 'get /users/{id}' do
+    it '有効化されていないユーザの場合はrootにリダイレクトすること' do
+      user = FactoryBot.create(:user)
+      not_activated_user = FactoryBot.create(:nonactivate)
+  
+      log_in user
+      get user_path(not_activated_user)
+      expect(response).to redirect_to root_path
+    end
   end
 
   describe 'GET users/{id}/edit' do

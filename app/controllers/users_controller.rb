@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   before_action :admin_user,      only: :destroy
   
   def index
-    @users = User.all.page(params[:page]).per(10) # ページネーションはユーザ10人ごとの表示に設定
+    @users = User.where(activated: true).page(params[:page]).per(10) # ページネーションはユーザ10人ごとの表示に設定
   end
 
   def show
     @user = User.find(params[:id])
     @beansposts = @user.beansposts.all.page(params[:page]).per(12) # ページネーションはポスト12個ごとの表示に設定
+    redirect_to root_url and return unless @user.activated?
   end
 
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.image.attach(params[:user][:image])
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "メールからアカウントの有効化を行なってください"
       redirect_to root_url
     else

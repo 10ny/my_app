@@ -83,7 +83,7 @@ RSpec.describe User, type: :model do
 
   describe '#autenticated?' do
     it 'digestが空白の場合はfalseを返すこと' do
-      expect(user.authenticated?('')).to be_falsy
+      expect(user.authenticated?(:remember, '')).to be_falsy
     end
   end
 

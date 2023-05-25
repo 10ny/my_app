@@ -30,6 +30,16 @@ FactoryBot.define do
     activated_at { Time.zone.now }
   end
 
+  factory :nonactivate, class: User do
+    name { 'Sterling Activater' }
+    nickname { 'Sterling Activater' }
+    email { 'nonact@example.gov' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    activated { false }
+    activated_at { nil }
+  end
+
   factory :continuous_users, class: User do
     sequence(:name) { |n| "User #{n}" }
     sequence(:nickname) { |n| "Nick #{n}" }
