@@ -1,11 +1,13 @@
-<h1>Serve</h1>
+<div class="center">
+  <h1>Serve</h1>
 
-<p><%= @user.name %>さん</p>
+  <h3><%= @user.name %>さん</h3>
 
-<p>
-Serveへようこそ!!<br>
-下記リンクより アカウントの有効化を行なってください!!
-</p>
+  <h2>
+  Serveへようこそ!!<br>
+  下記リンクよりアカウントの有効化を行なってください。
+  </h2>
 
-<%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
-                                                            email: @user.email) %>
+  <%= link_to "アカウント有効化", edit_account_activation_url(@user.activation_token,
+                                                              email: @user.email), class: "btn btn-primary" %>
+</div>

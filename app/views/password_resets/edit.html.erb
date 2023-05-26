@@ -1,0 +1,23 @@
+<% provide(:title, "パスワード再設定") %>
+
+<div class="container form-title">
+  <h1 class="center">パスワード再設定</h1>
+</div>
+<div class="container signup-form">
+  <div class="mb-3">
+    <%= form_with(model: @user, url: password_reset_path(params[:id])) do |f| %>
+      <%= hidden_field_tag :email, @user.email %>
+
+      
+      <%= f.label :password, "パスワード", class: "form-label required" %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label required" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+
+      <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
+
+      <%= f.submit "再設定", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
