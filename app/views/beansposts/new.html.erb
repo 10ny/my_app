@@ -9,9 +9,47 @@
 
     <%= render 'shared/error_messages', object: f.object %>
 
+    <%= f.label :product_name, "商品名", class: "form-label required" %>
+    <%= f.text_field :product_name, class: "form-control" %>
+
+    <label class="form-label required">煎り具合</label>
+    <br>
+    <%= f.radio_button :roast, :chinamon %>
+    <%= f.label :roast, "浅煎り", {value: :chinamon, class: "form-label", style: "display: inline-block;"} %>
+    <%= f.radio_button :roast, :medium %>
+    <%= f.label :roast, "中浅煎り", {value: :medium, class: "form-label", style: "display: inline-block;"} %>
+    <%= f.radio_button :roast, :high %>
+    <%= f.label :roast, "中煎り", {value: :high, class: "form-label", style: "display: inline-block;"} %>
+    <%= f.radio_button :roast, :city %>
+    <%= f.label :roast, "中深煎り", {value: :city, class: "form-label", style: "display: inline-block;"} %>
+    <%= f.radio_button :roast, :fullcity %>
+    <%= f.label :roast, "深煎り", {value: :fullcity, class: "form-label", style: "display: inline-block;"} %>
+    <br>
+
+    <%= f.label :country, "生産国", class: "form-label required" %>
+    <%= f.text_field :country, class: "form-control" %>
+
+    <%= f.label :shop_name, "店舗名", class: "form-label" %>
+    <%= f.text_field :shop_name, class: "form-control" %>
+
+    <%= f.label :grams, "容量", class: "form-label" %>(g)
+    <%= f.number_field :grams, class: "form-control" %>
+
+    <%= f.label :price, "価格", class: "form-label" %>(円)
+    <%= f.number_field :price, class: "form-control" %>
+
+    <%= f.label :date, "購入日", class: "form-label" %>
+    <%= f.date_field :date, class: "form-control" %>
+
+    <%= f.label :brew, "淹れ方", class: "form-label" %>
+    <%= f.text_field :brew, class: "form-control", placeholder: "ex) ハンドドリップ/マシン/ホット/アイス/コールドブリュー etc.." %>
+
+    <%= f.label :roaster, "焙煎元", class: "form-label" %>
+    <%= f.text_field :roaster, class: "form-control" %>
+
     <%= f.label :content, "コメント", class: "form-label required" %>
     <%= f.text_area :content, class: "form-control", placeholder: "この豆どうだった？" %>
-    
+    <br>
     <%= f.label :image, "画像", class: "form-label image" %>
     <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
 
