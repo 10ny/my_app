@@ -105,6 +105,15 @@ RSpec.describe "PasswordResets", type: :request do
                                                                         password_confirmation: 'foobazbar' } }
         expect(response).to redirect_to @user
       end
+
+      it 'reset_digestがnilになること' do
+        patch password_reset_path(@user.reset_token), params: { email: @user.email,
+                                                                user: { password: 'foobazbar',
+                                                                        password_confirmation: 'foobazbar' } }
+        @user.reload
+        expect(@user.reset_digest).to be_nil
+      end
+
     end
 
     # it 'パスワードと再入力が一致しなければ、エラーメッセージが表示されること' do
