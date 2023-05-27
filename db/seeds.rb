@@ -35,8 +35,26 @@ end
 # マイクロポスト
 users = User.order(:created_at).take(6)
 50.times do
-  content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.beansposts.create!(content: content) }
+  product_name = Faker::Coffee.blend_name
+  roast = "2"
+  country = Faker::Address.country
+  shop_name = Faker::Coffee.blend_name
+  grams = "200"
+  price = "1200"
+  date = Faker::Date.in_date_period
+  brew = Faker::Coffee.intensifier
+  roaster = Faker::Coffee.blend_name
+  content = Faker::Coffee.notes
+  users.each { |user| user.beansposts.create!(product_name: product_name,
+                                              roast: roast,
+                                              country: country,
+                                              shop_name: shop_name,
+                                              grams: grams,
+                                              price: price,
+                                              date: date,
+                                              brew: brew,
+                                              roaster: roaster,
+                                              content: content) }
 end
 
 
