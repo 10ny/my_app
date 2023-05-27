@@ -14,6 +14,7 @@ class Beanspost < ApplicationRecord
   validates :grams,   numericality: true, inclusion: { only_integer: true, in: 10..10000 }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
-  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"},
-                      size: { less_than: 5.megabytes, message: "5メガバイト以下の画像のみアップロード可能です。" }
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"}, size: { less_than: 5.megabytes, message: "5メガバイト以下の画像のみアップロード可能です。" }
+
+  enum :roast, { chinamon: 0, medium: 1, high: 2, city: 3, fullcity: 4 }
 end
