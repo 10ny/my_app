@@ -11,6 +11,14 @@ ja:
       beanspost:
         content: "コメント"
       
+
+      beanspost/roast:
+        chinamon:   "浅煎り"
+        medium:     "中浅煎り"
+        high:       "中煎り"
+        city:       "中深煎り"
+        fullcity:   "深煎り"
+      
       errors:
         model:
           user:
