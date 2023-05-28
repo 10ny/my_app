@@ -35,7 +35,7 @@ class BeanspostsController < ApplicationController
 
   private
     def beanspost_params
-      params.require(:beanspost).permit(:content, :image)
+      params.require(:beanspost).permit(:product_name, :roast, :country, :shop_name, :grams, :price, :date, :brew, :roaster, :content, :image)
     end
 
     def correct_user

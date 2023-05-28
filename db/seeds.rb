@@ -19,7 +19,7 @@ User.create!( name:  "Jun Yamaguchi",
 # 追加のユーザーをまとめて生成する
 50.times do |n|
 name  = Faker::Name.unique.name
-nickname = Faker::Name.unique.name
+nickname = Faker::Alphanumeric.alpha(number: 6) #Faker::Name.unique.name
 email = "example-#{n+1}@rails.org"
 password = "password"
 User.create!( name:  name,
@@ -36,7 +36,7 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   product_name = Faker::Coffee.blend_name
-  roast = "2"
+  roast = 2
   country = Faker::Address.country
   shop_name = Faker::Coffee.blend_name
   grams = "200"
