@@ -7,6 +7,8 @@
           <div class="card shadow-sm">
             <% if beanspost.image.attached? %>
               <%= image_tag beanspost.image.variant(:display), class: "card-img-top" %>
+            <% else %>
+              <%= image_tag("default_post.png") %>
             <% end %>
             
             <div class="card-body">

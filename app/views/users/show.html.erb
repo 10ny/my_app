@@ -1,11 +1,14 @@
 <% provide(:title, "マイページ") %>
 
 <div class="container mypage">
-
   <div class="container">
     <div class="row">
       <div class="col-3">
-        <h2>image</h2> <%# 画像はここに挿入<%= @user.image %>
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image.variant(:display), class: "user-image" %>
+        <% else %>
+          <%= image_tag("default_user.png", size: "200x200") %> <%# 登録画像がない場合はデフォルトを表示 %>
+        <% end %>
       </div>
       <div class="col-9">
         <h2><%= @user.nickname %></h2>
@@ -18,7 +21,7 @@
   <div class="container center row">
     <div class="col">
       <% if @user.beansposts.any? %>
-        <h3>マメモ(<%= @user.beansposts.count %>)</h3>
+        <h3>マメモ (<%= @user.beansposts.count %>)</h3>
         <ol class="beansposts">
           <%= render @beansposts %>
         </ol>
@@ -28,9 +31,9 @@
   </div>
 
   <% if current_user?(@user) %>
-  <div class="container row">
-    <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-6" %>
-    <%= link_to "アカウント削除", edit_user_path(@user), class: "btn btn-danger col-6" %> <%# リンクは変える %>
+  <div class="container row justify-content-between">
+    <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-5" %>
+    <%= link_to "アカウント削除", edit_user_path(@user), class: "btn btn-danger col-5" %> <%# リンクは変える %>
   </div>
   <% end %>
 </div>

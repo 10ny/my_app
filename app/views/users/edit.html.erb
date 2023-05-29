@@ -23,6 +23,9 @@
     <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
 
+    <%= f.label :image, "プロフィール画像", class: "form-label image" %>
+    <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
+
     <%= f.submit "更新", class: "btn btn-primary" %>
   <% end %>
   </div>
