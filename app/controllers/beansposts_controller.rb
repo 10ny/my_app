@@ -12,9 +12,6 @@ class BeanspostsController < ApplicationController
 
   def create
     @beanspost = current_user.beansposts.build(beanspost_params)
-      # if @beanspost.image.nil?
-      #   @beanspost.image = "default_post.png"#デフォルトで画像を設定
-      # end
     @beanspost.image.attach(params[:beanspost][:image])
     if @beanspost.save
       flash[:success] = "投稿しました！！"
