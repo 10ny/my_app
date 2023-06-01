@@ -24,7 +24,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 30 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :confirmation}
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true, confirmation: { type: :password, message: :wrong_password_confirmation }
+  
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"},
                       size: { less_than: 5.megabytes, message: "5MB以下の画像のみアップロード可能です。"}
 

@@ -16,11 +16,11 @@ class Beanspost < ApplicationRecord
                 }
   
   validates :product_name, presence: true
+  validates :shop_name, presence: true
   validates :roast, presence: true
   validates :country, presence: true
   validates :price,   numericality: true, inclusion: { only_integer: true, in: 100..10000 }
   validates :grams,   numericality: true, inclusion: { only_integer: true, in: 10..10000 }
-  validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png], message: "その画像フォーマットは対応していません。"}, size: { less_than: 5.megabytes, message: "5メガバイト以下の画像のみアップロード可能です。" }
 
