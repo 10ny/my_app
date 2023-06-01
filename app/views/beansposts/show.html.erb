@@ -1,2 +1,84 @@
+<% provide(:title, "投稿詳細") %>
 
-<%= l beanspost.created_at, format: :short %>
+<div class="container postpage">
+  <div class="container">
+    <div class="card" style="width: 100%;">
+      <div class="card-header center">
+        <h2 class="card-title"><%= @beanspost.product_name %></h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-sm-4">
+              <div class="card-title">
+                <% if @beanspost.image.attached? %>
+                  <%= image_tag @beanspost.image.variant(:display), width: "100%", class: "post-image rounded center" %>
+                <% else %>
+                  <%= image_tag("default_post.png", width: "100%", class: "rounded center") %> <%# 登録画像がない場合はデフォルトを表示 %>
+                <% end %>
+              </div>
+          </div>
+          <div class="col-12 col-sm-8">
+            <table class="table table-borderless table-striped center">
+              <thead>
+                <tr>
+                  <th scope="col"> </th>
+                  <th scope="col"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">店舗名</th>
+                  <td><h3><%= @beanspost.shop_name %></h3></td>
+                </tr>
+                <tr>
+                  <th scope="row">グラム</th>
+                  <td><h3><%= @beanspost.grams %>g</h3></td>
+                </tr>
+                <tr>
+                  <th scope="row">価格</th>
+                  <td><h3><%= @beanspost.price %>円</h3></td>
+                </tr>
+                <tr>
+                  <th scope="row">煎り具合</th>
+                  <td><h3><%= @beanspost.enum_name(:roast) %></h3></td>
+                </tr>
+                <tr>
+                  <th scope="row">生産国</th>
+                  <td><p class="text-muted"><%= @beanspost.country %></p></td>
+                </tr>
+                <tr>
+                  <th scope="row">焙煎元</th>
+                  <td><p class="text-muted"><%= @beanspost.roaster unless @beanspost.roaster.nil? %></p></td>
+                </tr>
+                <tr>
+                  <th scope="row">購入日</th>
+                  <td><p class="text-muted"><%= @beanspost.date unless @beanspost.date.nil? %></p></td>
+                </tr>
+                <tr>
+                  <th scope="row">淹れ方</th>
+                  <td><p class="text-muted"><%= @beanspost.brew unless @beanspost.brew.nil? %></p></td>
+                </tr>
+                <tr>
+                  <th scope="row">コメント</th>
+                  <td><p><%= @beanspost.content %></p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted right">
+        <%= link_to @beanspost.user.nickname, @beanspost.user %> <%#未実装%>
+        <%= l @beanspost.created_at, format: :short %>
+        <small class="text-muted">保存ロゴ</small> <%# 保存のアイコン表示とリンク %>
+      </div>
+    </div>
+<br>
+<br>
+  <% if current_user?(@beanspost.user) %>
+  <div class="container row justify-content-evenly">
+    <%= link_to "投稿編集", edit_beanspost_path(@beanspost), class: "btn btn-info col-5" %>
+    <%= link_to "投稿削除", @beanspost, class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+  </div>
+  <% end %>
+</div>

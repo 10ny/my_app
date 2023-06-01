@@ -1,9 +1,13 @@
 class BeanspostsController < ApplicationController
-  before_action :logged_in_user,  only: [:index, :new, :create, :destroy]
-  before_action :correct_user,    only: :destroy
+  before_action :logged_in_user
+  before_action :correct_user,    only: [:edit, :update, :destroy]
 
   def index
     @beansposts = Beanspost.all.page(params[:page]).per(12) # ページネーションはポスト12個ごとの表示に設定
+  end
+
+  def show
+    @beanspost = Beanspost.find(params[:id])
   end
 
   def new
@@ -22,13 +26,16 @@ class BeanspostsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
   end
 
   def update
+    if @beanspost.update(beanspost_params)
+      flash[:success] = "更新しました。"
+      redirect_to @beanspost
+    else
+      render "edit", status: :unprocessable_entity
+    end
   end
 
   def destroy
