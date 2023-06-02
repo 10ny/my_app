@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_131336) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_02_093829) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,10 +53,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_131336) do
     t.date "date"
     t.string "brew"
     t.string "roaster"
+    t.string "image"
     t.index ["product_name"], name: "index_beansposts_on_product_name"
     t.index ["roast"], name: "index_beansposts_on_roast"
     t.index ["user_id", "created_at"], name: "index_beansposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_beansposts_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "beanspost_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "\"user\", \"beanspost\"", name: "index_bookmarks_on_user_and_beanspost", unique: true
+    t.index ["beanspost_id"], name: "index_bookmarks_on_beanspost_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -83,10 +94,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_131336) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "beansposts", "users"
+  add_foreign_key "bookmarks", "beansposts"
+  add_foreign_key "bookmarks", "users"
 end
