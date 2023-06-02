@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_many :beansposts, dependent: :destroy
+
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_beansposts, through: :bookmarks, source: :beanspost
+
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
@@ -76,6 +80,21 @@ class User < ApplicationRecord
                       .includes(:user, image_attachment: :blob)
   end
 
+  # ブックマークする
+  def bookmark(beanspost)
+    bookmarks_beansposts << beanspost unless self.id == beanspost.user_id
+  end
+
+  # ブックマークを解除する
+  def unbookmark(beanspost)
+    bookmarks_beansposts.destroy(beanspost) #deleteでは?
+  end
+
+  # ユーザがブックマークしていればtrueを返す
+  def bookmark?(beasnpost)
+    bookmarks_beansposts.include?(beanspost)
+  end
+  
   # ユーザをフォローする
   def follow(other_user)
     following << other_user unless self == other_user

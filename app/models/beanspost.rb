@@ -1,5 +1,9 @@
 class Beanspost < ApplicationRecord
   belongs_to :user
+
+  has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
+
   has_one_attached :image do |attachable|
     attachable.variant :display, resize_to_limit: [200, 200]
   end
