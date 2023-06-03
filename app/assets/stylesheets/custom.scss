@@ -29,6 +29,10 @@ body {
   text-align: right;
 }
 
+.left {
+  text-align: left;
+}
+
 
 
 /* header */
@@ -239,4 +243,16 @@ main {
 
 .postpage {
   padding-top: 50px;
+}
+
+.time-stamp {
+  margin: 0 10px;
+}
+
+.fa-bookmark {
+  margin: 0 10px;
+}
+
+.icons-link {
+  color: $gray-900;
 }
