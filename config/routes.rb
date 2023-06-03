@@ -14,9 +14,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,      only: [:new, :create, :edit, :update]
   # get    "/newpost",   to: "beansposts#new"
-  resources :beansposts do
-    resources :bookmarks,           only: [:create, :destroy]
-  end
+  resources :beansposts
   # ,          only: [:index, :new, :show, :edit, :update :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :bookmarks,           only: [:create, :destroy]
 end

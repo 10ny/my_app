@@ -30,7 +30,9 @@
                     </button>
                   <% end %>
                 </div>
-                <small class="text-muted">保存</small> <%# 保存のアイコン表示とリンク %>
+                  <% unless current_user?(beanspost.user) %>
+                    <%= render 'beansposts/bookmark_form' %>
+                  <% end %>
               </div>
             </div>
             <div class="card-footer text-muted justify-content-between">

@@ -91,7 +91,7 @@ class User < ApplicationRecord
   end
 
   # ユーザがブックマークしていればtrueを返す
-  def bookmark?(beasnpost)
+  def bookmark?(beanspost)
     bookmarks_beansposts.include?(beanspost)
   end
   
