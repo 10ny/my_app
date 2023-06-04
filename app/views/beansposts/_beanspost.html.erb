@@ -31,7 +31,7 @@
                   <% end %>
                 </div>
                   <% unless current_user?(beanspost.user) %>
-                    <%= render 'beansposts/bookmark_form' %>
+                    <%= render 'beansposts/bookmark_form', locals: {beanspost: beanspost} %> <%# ロケールで代入された変数を定義 %>
                   <% end %>
               </div>
             </div>

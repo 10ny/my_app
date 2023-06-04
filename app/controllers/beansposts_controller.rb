@@ -48,6 +48,11 @@ class BeanspostsController < ApplicationController
     end
   end
 
+  # ブックマークした投稿の一覧表示用のグローバル変数定義
+  def bookmarks
+    @beansposts = current_user.bookmarks_beansposts
+  end
+
 
   private
     def beanspost_params
