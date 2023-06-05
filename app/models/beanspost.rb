@@ -38,4 +38,10 @@ class Beanspost < ApplicationRecord
     self.class.human_attribute_enum_value( attr_name, self.send("#{attr_name}") ) # sendでカラムの値を取得
   end
 
+  def bookmarked_by?(user)
+    #bookmarks.where(user_id: user).exists?
+    #上記の書き方でも可能
+    bookmarks.exists?(user_id: user.id)
+  end
+
 end
