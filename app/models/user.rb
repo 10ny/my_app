@@ -80,14 +80,19 @@ class User < ApplicationRecord
                       .includes(:user, image_attachment: :blob)
   end
 
+  # 自分の投稿か確認
+  def own?(objject)
+    self.id == object.user_id
+  end
+
   # ブックマークする
   def bookmark(beanspost)
-    bookmarks_beansposts << beanspost unless self.id == beanspost.user_id
+    bookmarks_beansposts << beanspost
   end
 
   # ブックマークを解除する
   def unbookmark(beanspost)
-    bookmarks_beansposts.destroy(beanspost) #deleteでは?
+    bookmarks_beansposts.delete(beanspost) #destroy?
   end
 
   # ユーザがブックマークしていればtrueを返す

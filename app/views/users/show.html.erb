@@ -18,16 +18,18 @@
     </div>
   </div>
 
-  <div class="container center row">
-    <div class="col">
-      <% if @user.beansposts.any? %>
-        <h3>マメモ (<%= @user.beansposts.count %>)</h3>
-        <ol class="beansposts">
+  <div class="container center">
+    <% if @user.beansposts.any? %>
+      <h3>マメモ (<%= @user.beansposts.count %>)</h3>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <%= render @beansposts %>
-        </ol>
-        <%= paginate @beansposts %>
-      <% end %>
-    </div>
+          </div>
+        </div>
+      </div>
+      <%= paginate @beansposts %>
+    <% end %>
   </div>
 
   <% if current_user?(@user) %>

@@ -4,6 +4,7 @@ class BeanspostsController < ApplicationController
 
   def index
     @beansposts = Beanspost.all.page(params[:page]).per(12) # ページネーションはポスト12個ごとの表示に設定
+    # @beanspost = Beanspost.find(params[:id])
   end
 
   def show
