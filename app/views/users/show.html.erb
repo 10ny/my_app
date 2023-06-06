@@ -1,7 +1,7 @@
 <% provide(:title, "マイページ") %>
 
 <div class="container mypage">
-  <div class="container">
+  <div class="container signup-page">
     <div class="row">
       <div class="col-3">
         <% if @user.image.attached? %>
@@ -11,17 +11,23 @@
         <% end %>
       </div>
       <div class="col-9">
-        <h2><%= @user.nickname %></h2>
-        <div><%= render "shared/stats" %></div>
-        <div><%= render 'follow_form' if logged_in? %></div>
+        <h1>
+          <%= @user.nickname %>
+        </h1>
+        <div>
+          <%= render "shared/stats" %>
+        </div>
+        <div>
+          <%= render 'follow_form' if logged_in? %>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container center">
+  <div class="container center signup-page">
     <% if @user.beansposts.any? %>
       <h3>マメモ (<%= @user.beansposts.count %>)</h3>
-      <div class="album py-5 bg-light">
+      <div class="album py-5">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <%= render @beansposts %>
@@ -30,12 +36,13 @@
       </div>
       <%= paginate @beansposts %>
     <% end %>
+    <div>
+      <% if current_user?(@user) %>
+        <div class="container row justify-content-evenly">
+          <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-5" %>
+          <%= link_to "アカウント削除", @user, class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+        </div>
+        <% end %>
+    </div>
   </div>
-
-  <% if current_user?(@user) %>
-  <div class="container row justify-content-evenly">
-    <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-5" %>
-    <%= link_to "アカウント削除", @user, class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
-  </div>
-  <% end %>
 </div>

@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
 /* miscellaneous */
 // デバッグ表示
@@ -16,9 +17,9 @@ body {
   background-image: image-url('coffeebeans.png');
   background-color:rgba(255,255,255,0.9);
   background-blend-mode:lighten;
-  background-size: cover;
-  min-height: 100vh;
+  box-sizing: border-box;
   display: none; //フェードイン表示のため記載
+  font-family: 'Sawarabi Mincho', serif; // さわらび明朝
 }
 
 .center {
@@ -53,6 +54,11 @@ header {
   }
 }
 
+  /* alert */
+  .alert {
+    margin: 0;
+  }
+
   /* footer */
 
 footer {
@@ -69,35 +75,40 @@ footer {
 .information {
   height: 50px;
   color: $gray-900;
-  background-color: #7DB9DE;
+  background-color: #cbc8c2;
   p {
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
-    // vertical-align: middle;
+    padding: auto;
   }
 }
 
-main {
-  h1 {
-    margin-top: 45px;
-  }
-}
+/* main */
 
 .top-page {
-  height: 100vh;
-  .row {
-    height: 400px;
-  }
+  // height: 100vh; //YouTube埋め込みのため非表示
   .col-6 {
     text-align: center;
-    margin: 100px auto;
+    margin: 4em auto;
   }
-  h2 {
-    font-size: 70px;
+  p {
+    font-size: 4em;
     display: inline-block;
     text-align: left;
     font-weight: bold;
+    @media screen and (max-width: 767px) {
+      font-size: 2em;
+    }
+  }
+  .youtube {
+    margin-top: 2em;
+    width: 70%;
+    aspect-ratio: 16 / 9;
+    iframe {
+    width: 100%;
+    height: 100%;
+    }
   }
 }
 
@@ -156,6 +167,10 @@ main {
   font-weight: bold;
 }
 
+.form-check {
+  margin: auto 0;
+}
+
 .required::after {
     content: " *";
     font-size: 14pt;
@@ -167,7 +182,15 @@ main {
 
 
 
-/* Sign up form */
+/* Sign up */
+.signup-page {
+  background-color: #efeae7;
+  border-radius: 6px;
+  box-shadow: 0 0 16px $gray-500;
+  margin-top: 48px;
+  padding: 48px 12px;
+}
+
 .signup-form {
   margin-top: 45px;
   font-weight: bold;
