@@ -13,16 +13,26 @@
 
     <label class="form-label required">煎り具合</label>
     <br>
-    <%= f.radio_button :roast, :chinamon %>
-    <%= f.label :roast, "浅煎り", {value: :chinamon, class: "form-label", style: "display: inline-block;"} %>
-    <%= f.radio_button :roast, :medium %>
-    <%= f.label :roast, "中浅煎り", {value: :medium, class: "form-label", style: "display: inline-block;"} %>
-    <%= f.radio_button :roast, :high %>
-    <%= f.label :roast, "中煎り", {value: :high, class: "form-label", style: "display: inline-block;"} %>
-    <%= f.radio_button :roast, :city %>
-    <%= f.label :roast, "中深煎り", {value: :city, class: "form-label", style: "display: inline-block;"} %>
-    <%= f.radio_button :roast, :fullcity %>
-    <%= f.label :roast, "深煎り", {value: :fullcity, class: "form-label", style: "display: inline-block;"} %>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :roast, :chinamon %>
+      <%= f.label :roast, "浅煎り", {value: :chinamon, class: "form-label", style: "display: inline-block;"} %>
+      </div>
+      <div class="form-check form-check-inline">
+      <%= f.radio_button :roast, :medium %>
+      <%= f.label :roast, "中浅煎り", {value: :medium, class: "form-label", style: "display: inline-block;"} %>
+      </div>
+      <div class="form-check form-check-inline">
+      <%= f.radio_button :roast, :high %>
+      <%= f.label :roast, "中煎り", {value: :high, class: "form-label", style: "display: inline-block;"} %>
+      </div>
+      <div class="form-check form-check-inline">
+      <%= f.radio_button :roast, :city %>
+      <%= f.label :roast, "中深煎り", {value: :city, class: "form-label", style: "display: inline-block;"} %>
+      </div>
+      <div class="form-check form-check-inline">
+      <%= f.radio_button :roast, :fullcity %>
+      <%= f.label :roast, "深煎り", {value: :fullcity, class: "form-label", style: "display: inline-block;"} %>
+      </div>
     <br>
 
     <%= f.label :country, "生産国", class: "form-label required" %>

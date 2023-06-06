@@ -1,9 +1,17 @@
+<%# information %>
+<div class="container-fluid information center">
+    <p>Infomation</p>
+</div>
+
+<%# トップページ %>
 <% if logged_in? %>
   <h1 class="center">ログイン済みトップページ</h1>
-  <div class="container posts_page center">
-    <h2>フォロー中 投稿一覧</h2>
+  <div class="container center signup-page">
+    <div class="container form-title">
+      <h1>フォロー中 投稿一覧</h1>
+    </div>
     <% if @beansposts.any?%>
-      <div class="album py-5 bg-light">
+      <div class="album py-5">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <%= render @beansposts %>
@@ -14,27 +22,35 @@
     <% end %>
   </div>
 <% else %>
-  <div class="top-page">
-    <div class="row">
-      <div class="col-6">
-        <h2>
-          Find<br>
-          New<br>
-          Beans.
-        </h2>
+  <div class="container">
+    <div class="top-page">
+      <div class="row">
+        <div class="col-6">
+          <p>
+            Find<br>
+            New<br>
+            Beans.
+          </p>
+        </div>
+        <div class="col-6">
+          <p>
+            未知の<br>
+            豆との<br>
+            出会い
+          </p>
+        </div>
       </div>
-      <div class="col-6">
-        <h2>
-          未知の<br>
-          豆との<br>
-          出会い
-        </h2>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
+        <br>
+        <%= link_to "Serveについて", about_path, class: "btn btn-info" %>
       </div>
-    </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
-      <br>
-      <%= link_to "Serveについて", about_path, class: "btn btn-info" %>
+      <%# YouTube埋め込み欄 %>
+      <div class="container center youtube">
+        <h4>イメージ動画</h4>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TcPvlt5ji60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 <% end %>
