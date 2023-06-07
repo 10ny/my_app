@@ -4,7 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "rails",           "7.0.4"
 gem "kaminari"                    #ページネーション用gem
 gem "i18n",            "~> 1.13"  # 日本語化gem
-gem "rails-i18n",       "7.0.6"   # 日本語化gem
+gem "rails-i18n",      "7.0.6"    # 日本語化gem
+gem "dotenv-rails",    "~> 2.8"   # 環境変数用gem
+gem "carrierwave",     "~> 2.2"   # 画像アップロード用gem
 gem "image_processing",           "1.12.2" # 画像分析・加工用gem
 gem "active_storage_validations", "0.9.8" # 画像のバリデーション追加用gem
 gem "bcrypt",          "3.1.18"   # ハッシュ化gem
