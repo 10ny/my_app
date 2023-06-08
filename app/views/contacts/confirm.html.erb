@@ -1,7 +1,7 @@
 <% provide(:title, "問い合わせ内容確認") %>
 
-<div class="container signup-page">
-  <div class="container form-title center">
+<div class="container signup-page center">
+  <div class="container form-title">
     <h1>問い合わせ内容確認</h1>
     <p>下記内容でお間違いがないか、ご確認ください。</p>
   </div>
@@ -9,22 +9,27 @@
     <div class="mb-3">
     <%= form_with model: @contact, url: contacts_thanks_path, local: true do |f| %>
       <div class="container row">
+        <hr>
         <div class="col-12">
           <p>名前</p>
-          <p><%= @contact.name %></p>
+          <h5><%= @contact.name %></h5>
         </div>
+        <hr>
         <div class="col-12">
           <p>メールアドレス</p>
-          <p><%= @contact.email %></p>
+          <h5><%= @contact.email %></h5>
         </div>
+        <hr>
         <div class="col-12">
           <p>件名</p>
-          <p><%= @contact.subject %></p>
+          <h5><%= @contact.subject %></h5>
         </div>
+        <hr>
         <div class="col-12">
           <p>問い合わせ内容</p>
-          <p><%= @contact.content %></p>
+          <h5><%= @contact.content %></h5>
         </div>
+        <hr>
       </div>
 
       <%= f.hidden_field :name %>
@@ -34,10 +39,6 @@
 
       <%= f.submit "送信", class: "btn btn-primary" %>
     <% end %>
-    </div>
-  </div>
-  <div class="container signup-form">
-    <div class="mb-3">
     <%= form_with model: @contact, url: contacts_edit_path, local: true do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :email %>

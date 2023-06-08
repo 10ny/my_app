@@ -1,28 +1,40 @@
-<% provide(:title, "問い合わせ内容") %>
+<% provide(:title, "問い合わせ完了") %>
 
-<div class="container signup-page ">
-  <div class="container form-title center">
-    <h1>問い合わせ内容</h1>
+<div class="container signup-page center">
+  <div class="container form-title">
+    <h1>問い合わせ完了</h1>
     <p>下記内容にてお問い合わせを受け付けました。</p>
     <p>返信までお時間をいただく場合がございます。</p>
     <p>何卒ご理解ご了承願います。</p>
   </div>
-  <div class="container row">
-    <div class="col-12">
-      <p>名前</p>
-      <p><%= @contact.name %></p>
+  <div class="container signup-form">
+    <div class="mb-3">
+      <div class="container row">
+        <hr>
+        <div class="col-12">
+          <p>名前</p>
+          <h5><%= @contact.name %></h5>
+        </div>
+        <hr>
+        <div class="col-12">
+          <p>メールアドレス</p>
+          <h5><%= @contact.email %></h5>
+        </div>
+        <hr>
+        <div class="col-12">
+          <p>件名</p>
+          <h5><%= @contact.subject %></h5>
+        </div>
+        <hr>
+        <div class="col-12">
+          <p>問い合わせ内容</p>
+          <h5><%= @contact.content %></h5>
+        </div>
+        <hr>
+      </div>
     </div>
-    <div class="col-12">
-      <p>メールアドレス</p>
-      <p><%= @contact.email %></p>
-    </div>
-    <div class="col-12">
-      <p>件名</p>
-      <p><%= @contact.subject %></p>
-    </div>
-    <div class="col-12">
-      <p>問い合わせ内容</p>
-      <p><%= @contact.content %></p>
-    </div>
+  </div>
+  <div class="container">
+    <%= link_to "ホームへ戻る", "/", class: "btn btn-primary" %>
   </div>
 </div>
