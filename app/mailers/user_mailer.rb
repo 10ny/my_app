@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  layout "mailer"
 
   def account_activation(user)
     @user = user

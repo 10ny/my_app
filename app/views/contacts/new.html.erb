@@ -1,0 +1,30 @@
+<% provide(:title, "問い合わせ") %>
+
+<div class="container signup-page">
+  <div class="container form-title">
+    <h1 class="center">問い合わせ</h1>
+  </div>
+  <div class="container signup-form">
+    <div class="mb-3">
+    <%= form_with model: @contact, url: contacts_confirm_path, local: true do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :name, "名前", class: "form-label required" %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :email, "メールアドレス", class: "form-label required" %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label :subject, "件名", class: "form-label required" %>
+      <%= f.text_field :subject, class: "form-control" %>
+
+      <%= f.label :content, "問い合わせ内容", class: "form-label required" %>
+      <%= f.text_area :content, class: "form-control", rows: "8rem" %>
+      <br>
+      <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
+
+      <%= f.submit "内容確認", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>

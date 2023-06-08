@@ -25,7 +25,7 @@
                     <hr>
                     <li><%= link_to "アプリについて", about_path, class: "nav-link" %></li>
                     <hr>
-                    <li><%= link_to "問い合わせ", contact_path, class: "nav-link" %></li>
+                    <li><%= link_to "問い合わせ", contacts_path, class: "nav-link" %></li>
                     <hr>
                     <li><%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete }, class: "nav-link" %></li>
                     <hr>
@@ -39,7 +39,7 @@
       <nav>
         <ul class="nav justify-contents-end">
           <li><%= link_to "Serveについて", "about", class: "nav-link" %></li>
-          <li><%= link_to "問い合わせ", "contact", class: "nav-link" %></li>
+          <li><%= link_to "問い合わせ", "contacts", class: "nav-link" %></li>
           <li><%= link_to "ログイン", "login", class: "nav-link" %></li>
         </ul>
       </nav>

@@ -40,6 +40,21 @@ ja:
         email:
           format: "%{attribute}が正しくありません。"
 
+
+  activemodel:
+    attributes:    
+      contact:
+        name: "名前"
+        email: "メールアドレス"
+        subject: "件名"
+        content: "問い合わせ内容"
+    
+    errors:
+      messages:
+        invalid: "が正しくありません。"
+        blank: "は必須項目です。"
+
+
   views:
     pagination:
       first: "&laquo;"
