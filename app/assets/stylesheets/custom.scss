@@ -10,6 +10,14 @@
   margin-top: 45px;
 }
 
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 /* universal */
 
 body {
@@ -17,7 +25,6 @@ body {
   background-image: image-url('coffeebeans.png');
   background-color:rgba(255,255,255,0.9);
   background-blend-mode:lighten;
-  box-sizing: border-box;
   display: none; //フェードイン表示のため記載
   font-family: 'Sawarabi Mincho', serif; // さわらび明朝
 }
@@ -97,9 +104,6 @@ footer {
     display: inline-block;
     text-align: left;
     font-weight: bold;
-    @media screen and (max-width: 767px) {
-      font-size: 2em;
-    }
   }
   .youtube {
     margin-top: 2em;
@@ -278,4 +282,38 @@ footer {
 
 .icons-link {
   color: $gray-900;
+}
+
+
+/* responsive */
+@media (min-width:769px){
+  .sp {
+    display: none;
+    margin-left: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pc {
+    display: none;
+  }
+
+  .navbar {
+    img {
+      width: 100px;
+    }
+  }
+
+  .top-page {
+    p {
+      font-size: 2em;
+    }
+  } 
+}
+
+/* Galaxy Fold 専用 メディアクエリ */
+@media screen and (max-width: 289px) {
+  .pc-gf {
+    display: none;
+  }
 }
