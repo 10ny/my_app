@@ -1,32 +1,34 @@
 <% provide(:title, "アカウント編集") %>
 
-<div class="container form-title">
-  <h1 class="center">アカウント編集</h1>
-</div>
-<div class="container signup-form">
-  <div class="mb-3">
-  <%= form_with(model: @user) do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
+<div class="container signup-page">
+  <div class="container form-title">
+    <h1 class="center">アカウント編集</h1>
+  </div>
+  <div class="container signup-form">
+    <div class="mb-3">
+    <%= form_with(model: @user) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.label :name, "名前", class: "form-label" %>
-    <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :name, "名前", class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
 
-    <%= f.label :nickname, "ニックネーム", class: "form-label" %>
-    <%= f.text_field :nickname, class: "form-control" %>
+      <%= f.label :nickname, "ニックネーム", class: "form-label" %>
+      <%= f.text_field :nickname, class: "form-control" %>
 
-    <%= f.label :email, "メールアドレス", class: "form-label" %>
-    <%= f.email_field :email, class: "form-control" %>
+      <%= f.label :email, "メールアドレス", class: "form-label" %>
+      <%= f.email_field :email, class: "form-control" %>
 
-    <%= f.label :password, "パスワード", class: "form-label" %>
-    <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :password, "パスワード", class: "form-label" %>
+      <%= f.password_field :password, class: "form-control" %>
 
-    <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+      <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
 
-    <%= f.label :image, "プロフィール画像", class: "form-label image" %>
-    <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
+      <%= f.label :image, "プロフィール画像", class: "form-label image" %>
+      <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
 
-    <%= f.submit "更新", class: "btn btn-primary" %>
-  <% end %>
+      <%= f.submit "更新", class: "btn btn-primary" %>
+    <% end %>
+    </div>
   </div>
 </div>
