@@ -1,6 +1,6 @@
 <% provide(:title, "投稿詳細") %>
 
-<div class="container postpage">
+<div class="container post-page">
   <div class="container">
     <div class="card" style="width: 100%;">
       <div class="card-header center">
@@ -68,15 +68,11 @@
         </div>
       </div>
       <div class="card-footer text-muted right">
-          <%= link_to @beanspost.user.nickname, @beanspost.user %> <%#未実装%>
+          <%= link_to @beanspost.user.nickname, @beanspost.user %>
           <span class="time-stamp"><%= l @beanspost.created_at, format: :short %></span>
-        <%
-=begin%>
- <% unless current_user?(@beanspost.user) %>
-          <span><%= render 'beansposts/bookmark_form' %></span>
-        <% end %> 
-<%
-=end%>
+        <%# unless current_user?(@beanspost.user) %>
+          <span><%#= render 'beansposts/bookmark_form' %></span>
+        <%# end %>
       </div>
     </div>
 <br>

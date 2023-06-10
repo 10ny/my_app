@@ -1,71 +1,73 @@
 <% provide(:title, "投稿編集") %>
 
-<div class="container form-title">
-  <h1 class="center">投稿編集</h1>
-</div>
-<div class="container signup-form">
-  <div class="mb-3">
-  <%= form_with(model: @beanspost) do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
+<div class="container signup-page">
+  <div class="container form-title">
+    <h1 class="center">投稿編集</h1>
+  </div>
+  <div class="container signup-form">
+    <div class="mb-3">
+    <%= form_with(model: @beanspost) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
 
-    <%= f.label :product_name, "商品名", class: "form-label required" %>
-    <%= f.text_field :product_name, class: "form-control" %>
+      <%= f.label :product_name, "商品名", class: "form-label required" %>
+      <%= f.text_field :product_name, class: "form-control" %>
 
-    <label class="form-label required">煎り具合</label>
-    <br>
-    <div class="form-check form-check-inline">
-      <%= f.radio_button :roast, :chinamon %>
-      <%= f.label :roast, "浅煎り", {value: :chinamon, class: "form-label", style: "display: inline-block;"} %>
-      </div>
+      <label class="form-label required">煎り具合</label>
+      <br>
       <div class="form-check form-check-inline">
-      <%= f.radio_button :roast, :medium %>
-      <%= f.label :roast, "中浅煎り", {value: :medium, class: "form-label", style: "display: inline-block;"} %>
-      </div>
-      <div class="form-check form-check-inline">
-      <%= f.radio_button :roast, :high %>
-      <%= f.label :roast, "中煎り", {value: :high, class: "form-label", style: "display: inline-block;"} %>
-      </div>
-      <div class="form-check form-check-inline">
-      <%= f.radio_button :roast, :city %>
-      <%= f.label :roast, "中深煎り", {value: :city, class: "form-label", style: "display: inline-block;"} %>
-      </div>
-      <div class="form-check form-check-inline">
-      <%= f.radio_button :roast, :fullcity %>
-      <%= f.label :roast, "深煎り", {value: :fullcity, class: "form-label", style: "display: inline-block;"} %>
-      </div>
-    <br>
+        <%= f.radio_button :roast, :chinamon %>
+        <%= f.label :roast, "浅煎り", {value: :chinamon, class: "form-label", style: "display: inline-block;"} %>
+        </div>
+        <div class="form-check form-check-inline">
+        <%= f.radio_button :roast, :medium %>
+        <%= f.label :roast, "中浅煎り", {value: :medium, class: "form-label", style: "display: inline-block;"} %>
+        </div>
+        <div class="form-check form-check-inline">
+        <%= f.radio_button :roast, :high %>
+        <%= f.label :roast, "中煎り", {value: :high, class: "form-label", style: "display: inline-block;"} %>
+        </div>
+        <div class="form-check form-check-inline">
+        <%= f.radio_button :roast, :city %>
+        <%= f.label :roast, "中深煎り", {value: :city, class: "form-label", style: "display: inline-block;"} %>
+        </div>
+        <div class="form-check form-check-inline">
+        <%= f.radio_button :roast, :fullcity %>
+        <%= f.label :roast, "深煎り", {value: :fullcity, class: "form-label", style: "display: inline-block;"} %>
+        </div>
+      <br>
 
-    <%= f.label :country, "生産国", class: "form-label required" %>
-    <%= f.text_field :country, class: "form-control" %>
+      <%= f.label :country, "生産国", class: "form-label required" %>
+      <%= f.text_field :country, class: "form-control" %>
 
-    <%= f.label :shop_name, "店舗名", class: "form-label required" %>
-    <%= f.text_field :shop_name, class: "form-control" %>
+      <%= f.label :shop_name, "店舗名", class: "form-label required" %>
+      <%= f.text_field :shop_name, class: "form-control" %>
 
-    <%= f.label :grams, "容量", class: "form-label required" %>(g)
-    <%= f.number_field :grams, class: "form-control" %>
+      <%= f.label :grams, "容量", class: "form-label required" %>(g)
+      <%= f.number_field :grams, class: "form-control" %>
 
-    <%= f.label :price, "価格", class: "form-label required" %>(円)
-    <%= f.number_field :price, class: "form-control" %>
+      <%= f.label :price, "価格", class: "form-label required" %>(円)
+      <%= f.number_field :price, class: "form-control" %>
 
-    <%= f.label :date, "購入日", class: "form-label" %>
-    <%= f.date_field :date, class: "form-control" %>
+      <%= f.label :date, "購入日", class: "form-label" %>
+      <%= f.date_field :date, class: "form-control" %>
 
-    <%= f.label :brew, "淹れ方", class: "form-label" %>
-    <%= f.text_field :brew, class: "form-control" %>
+      <%= f.label :brew, "淹れ方", class: "form-label" %>
+      <%= f.text_field :brew, class: "form-control" %>
 
-    <%= f.label :roaster, "焙煎元", class: "form-label" %>
-    <%= f.text_field :roaster, class: "form-control" %>
+      <%= f.label :roaster, "焙煎元", class: "form-label" %>
+      <%= f.text_field :roaster, class: "form-control" %>
 
-    <%= f.label :content, "コメント", class: "form-label required" %>
-    <%= f.text_area :content, class: "form-control" %>
-    <br>
-    <%= f.label :image, "画像", class: "form-label image" %>
-    <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
+      <%= f.label :content, "コメント", class: "form-label required" %>
+      <%= f.text_area :content, class: "form-control" %>
+      <br>
+      <%= f.label :image, "画像", class: "form-label image" %>
+      <%= f.file_field :image, class: "form-control", accept: "image/jpeg,image/gif,image/png" %>
 
-    <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
+      <p>「 <span class="asterisk">*</span> 」は必須項目です。</p>
 
-    <%= f.submit "更新", class: "btn btn-primary" %>
-    
-  <% end %>
+      <%= f.submit "更新", class: "btn btn-primary" %>
+      
+    <% end %>
+    </div>
   </div>
 </div>

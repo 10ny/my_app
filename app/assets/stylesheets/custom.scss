@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "hero.scss";
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
 /* miscellaneous */
@@ -27,6 +28,9 @@ body {
   background-blend-mode:lighten;
   display: none; //フェードイン表示のため記載
   font-family: 'Sawarabi Mincho', serif; // さわらび明朝
+  a {
+    color: #979286;
+  }
 }
 
 .center {
@@ -91,6 +95,39 @@ footer {
   }
 }
 
+/* about */
+.about-page {
+  background-color: #efeae7;
+  border-radius: 6px;
+  box-shadow: 0 0 16px $gray-500;
+  padding: 48px 12px;
+  a {
+    text-decoration: none;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+.page-top-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 0.7em;
+  text-align: center;
+  transition: 0.3s 0;
+  opacity: 0.7;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+.icon-size {
+  font-size:2.5em;
+}
+
+
 /* main */
 
 .top-page {
@@ -115,7 +152,6 @@ footer {
     }
   }
 }
-
 
 
 /* my_page */
@@ -268,8 +304,8 @@ footer {
 
 /* post show */
 
-.postpage {
-  padding-top: 50px;
+.post-page {
+  padding-top: 48px;
 }
 
 .time-stamp {
