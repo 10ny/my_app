@@ -6,10 +6,10 @@
 <%# トップページ %>
 <% if logged_in? %>
   <div class="container center signup-page">
-    <div class="container form-title">
-      <h1>フォロー中 投稿一覧</h1>
-    </div>
     <% if @beansposts.any?%>
+      <div class="container form-title">
+        <h1>フォロー中 投稿一覧</h1>
+      </div>
       <span class="sp"><%= paginate @beansposts %></span>
       <div class="album py-5">
         <div class="container">
@@ -20,7 +20,12 @@
       </div>
       <%= paginate @beansposts %>
     <% else %>
-      <h1>まずはフォローしてみよう<i class="fa-regular fa-handshake fa-2xl"></i></h1>
+        <div class="container form-title">
+          <h1>まずはユーザをフォローしてみよう<i class="fa-regular fa-handshake fa-lg"></i></h1>
+        </div>
+        <div class="container">
+          <h1>アプリについて知ってみる</h1>
+        </div>
     <% end %>
   </div>
 <% else %>
