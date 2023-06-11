@@ -9,19 +9,21 @@
 <div class="px-4 pt-5 mb-5 text-center border-bottom about-page">
   <h1 class="display-4 fw-bold">Serveについて</h1>
   <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4">新たな豆との出会いを提供します。例えば...<br></p>
+    <p class="lead mb-4">新たな豆との出会いを提供<small class="text-muted">(Serve)</small>します。例えば...</p><br>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
       <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic1"><i class="fa-regular fa-square-caret-down fa-lg"></i> Topic 1</a>
+        <a href="#topic1"><i class="fa-regular fa-square-caret-down fa-lg"></i> 豆を記録できる</a>
       </button>
       <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic2"><i class="fa-regular fa-square-caret-down fa-lg"></i> Topic 2</a>
+        <a href="#topic2"><i class="fa-regular fa-square-caret-down fa-lg"></i> 記録の詳細も確認</a>
+      </button>
+    </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <button type="button" class="btn btn-lg px-4 me-3">
+        <a href="#topic3"><i class="fa-regular fa-square-caret-down fa-lg"></i> 他の人の記録も</a>
       </button>
       <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic3"><i class="fa-regular fa-square-caret-down fa-lg"></i> Topic 3</a>
-      </button>
-      <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic4"><i class="fa-regular fa-square-caret-down fa-lg"></i> Topic 4</a>
+        <a href="#topic4"><i class="fa-regular fa-square-caret-down fa-lg"></i> お気に入りを見つけよう</a>
       </button>
     </div>
   </div>
@@ -39,11 +41,15 @@
         <%= image_tag "coffeebeans.png", class: "d-block mx-lg-auto img-fluid", alt: "アプリのサンプル画像", width: "700", height: "500", loading: "lazy" %>
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <h1 class="display-5 fw-bold lh-1 mb-3">自分が飲んだ豆を<br>メモ感覚で記録。</h1><br>
+        <p class="lead">お店で淹れてもらったドリップコーヒーはもちろん、自宅で豆を挽いてコールドブリューで味わったコーヒーも。</p>
+        <p class="lead">メモに残しておくように軽い気持ちで記録してください。</p><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+          <% if logged_in? %>
+            <%= link_to "記録してみる？", new_beanspost_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% else %>
+            <%= link_to "記録してみる？", signup_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -57,11 +63,15 @@
         <%= image_tag "coffeebeans.png", class: "img-fluid border rounded-3 shadow-lg mb-4", alt: "Example image", width: "700", height: "500", loading: "lazy" %>
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive right-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <h1 class="display-5 fw-bold lh-1 mb-3">残した記録は<br>詳細まで思い出せる。</h1><br>
+        <p class="lead">あの美味しかったコーヒーどこのだっけ。<br>ドリップ？エスプレッソ？<br>ホット？アイス？<br>どうやって飲んだっけ。</p>
+        <p class="lead">ショップや商品名、飲んだ時の感想まで記録しておくことができます。</p><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+          <% if logged_in? %>
+            <%= link_to "思い出してみる？", current_user, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% else %>
+            <%= link_to "思い出してみる？", signup_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -75,11 +85,15 @@
         <%= image_tag "coffeebeans.png", class: "d-block mx-lg-auto img-fluid", alt: "アプリのサンプル画像", width: "700", height: "500", loading: "lazy" %>
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <h1 class="display-5 fw-bold lh-1 mb-3">他のユーザの記録も<br>見てみようかな。</h1><br>
+        <p class="lead">あ、この人は自分と好みが似ているな。<br>この人は幅広い種類の豆を楽しんでいるな。</p>
+        <p class="lead">気になるユーザーはフォローしてチェックできます。</p><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+          <% if logged_in? %>
+            <%= link_to "チェックしてみる？", beansposts_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% else %>
+            <%= link_to "チェックしてみる？", signup_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -93,11 +107,15 @@
         <%= image_tag "coffeebeans.png", class: "img-fluid border rounded-3 shadow-lg mb-4", alt: "Example image", width: "700", height: "500", loading: "lazy" %>
       </div>
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive right-aligned hero with image</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <h1 class="display-5 fw-bold lh-1 mb-3">お気に入りのコーヒー<br>きっと見つかります。</h1><br>
+        <p class="lead">このコーヒー豆は深煎りでしっかり苦味が強そうだな。<br>お、このレシピで入れるとこんな味になるのか。</p>
+        <p class="lead">気になる記録やお気に入りのコーヒーや豆を見つけたら、保存しておけます。</p><br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+          <% if logged_in? %>
+            <%= link_to "探してみる？", beansposts_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% else %>
+            <%= link_to "探してみる？", signup_path, class: "btn btn-outline-secondary btn-lg px-4" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -105,13 +123,16 @@
 </div>
 
 <div class="px-4 py-5 my-5 text-center about-page">
-  <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-  <h1 class="display-5 fw-bold">Centered hero</h1>
+  <%= image_tag "coffeebeans.png", class: "d-block mx-auto mb-4", alt: "アプリのサンプル画像", width: "500", height: "350" %>
+  <h1 class="display-5 fw-bold">ちょっとひと息つける場所。</h1>
   <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+    <p class="lead mb-4">いろんな人におすすめを <span class="hero-title">Serve</span> してみませんか。</p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
-      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+      <% if logged_in? %>
+        <%= link_to "はじめる", "/", class: "btn btn-primary btn-lg px-4 me-sm-3" %>
+      <% else %>
+        <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg px-4 me-sm-3" %>
+      <% end %>
     </div>
   </div>
 </div>
