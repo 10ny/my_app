@@ -165,6 +165,28 @@ footer {
   }
 }
 
+/* post show */
+
+.post-page {
+  background-color: #efeae7;
+  border-radius: 6px;
+  box-shadow: 0 0 16px $gray-500;
+  padding: 48px 12px;
+  margin-top: 48px;
+}
+
+.time-stamp {
+  margin: 0 10px;
+}
+
+.fa-bookmark {
+  margin: 0 10px;
+}
+
+.icons-link {
+  color: $gray-900;
+}
+
 /* posts_page */
 .posts_page {
   ol {
@@ -304,25 +326,6 @@ footer {
 //   // background: #81C7D4;     /*背景の色を変える*/
 // //   // border-radius: 15px;
 // }
-
-
-/* post show */
-
-.post-page {
-  padding-top: 48px;
-}
-
-.time-stamp {
-  margin: 0 10px;
-}
-
-.fa-bookmark {
-  margin: 0 10px;
-}
-
-.icons-link {
-  color: $gray-900;
-}
 
 
 /* responsive */
