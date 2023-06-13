@@ -3,14 +3,14 @@
 <div class="container mypage">
   <div class="container signup-page">
     <div class="row">
-      <div class="col-3">
+      <div class="col-md-2 col-6 ms-3">
         <% if @user.image.attached? %>
           <%= image_tag @user.image.variant(:display), class: "user-image", width: "100%" %>
         <% else %>
           <%= image_tag("default_user.png", width: "100%" ) %> <%# 登録画像がない場合はデフォルトを表示 %>
         <% end %>
       </div>
-      <div class="col-9">
+      <div class="col-md-9 col-12 ms-4">
         <h1>
           <%= @user.nickname %>
         </h1>
@@ -25,18 +25,76 @@
   </div>
 
   <div class="container center signup-page">
-    <% if @user.beansposts.any? %>
-      <h3>マメモ (<%= @user.beansposts.count %>)</h3>
-      <span class="sp"><%= paginate @beansposts %></span>
-      <div class="album py-5">
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <%= render @beansposts %>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="post-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#post"
+          type="button"
+          role="tab"
+          aria-controls="post"
+          aria-selected="true"
+        >
+          投稿
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="bookmark-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#bookmark"
+          type="button"
+          role="tab"
+          aria-controls="bookmark"
+          aria-selected="false"
+        >
+          ブックマーク
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="post"
+        role="tabpanel"
+        aria-labelledby="post-tab"
+      >
+        <% if @user.beansposts.any? %>
+          <h3>マメモ (<%= @user.beansposts.count %>)</h3>
+          <span class="sp"><%= paginate @beansposts %></span>
+          <div class="album py-5">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <%= render @beansposts %>
+              </div>
+            </div>
           </div>
-        </div>
+          <%= paginate @beansposts %>
+        <% end %>
       </div>
-      <%= paginate @beansposts %>
-    <% end %>
+      <div
+        class="tab-pane fade"
+        id="bookmark"
+        role="tabpanel"
+        aria-labelledby="bookmark-tab"
+      >
+        <% if @user.bookmarks.any? %>
+          <h3>ブックマーク (<%= @user.bookmarks.count %>)</h3>
+          <span class="sp"><%= paginate @beansposts %></span>
+          <div class="album py-5">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <%= render @beansposts %>
+              </div>
+            </div>
+          </div>
+          <%= paginate @beansposts %>
+        <% end %>
+      </div>
+    </div>
     <div>
       <% if current_user?(@user) %>
         <div class="container row justify-content-evenly">

@@ -49,13 +49,13 @@
       <%= f.label :price, "価格", class: "form-label required" %>(円)
       <%= f.number_field :price, class: "form-control" %>
 
-      <%= f.label :date, "購入日", class: "form-label required" %>
+      <%= f.label :date, "購入日", class: "form-label" %>
       <%= f.date_field :date, class: "form-control" %>
 
-      <%= f.label :brew, "淹れ方", class: "form-label required" %>
+      <%= f.label :brew, "淹れ方", class: "form-label" %>
       <%= f.text_field :brew, class: "form-control", placeholder: "ex) ハンドドリップ/マシン/ホット/アイス/コールドブリュー etc.." %>
 
-      <%= f.label :roaster, "焙煎元", class: "form-label required" %>
+      <%= f.label :roaster, "焙煎元", class: "form-label" %>
       <%= f.text_field :roaster, class: "form-control" %>
 
       <%= f.label :content, "コメント", class: "form-label required" %>
