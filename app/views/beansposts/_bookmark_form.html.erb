@@ -1,7 +1,7 @@
 <span id="bookmark_form">
 <% if current_user.bookmark?(@beanspost) %>
-  <%= render "beansposts/unbookmark", beanspost: @beanspost %>
+  <%= render "beansposts/unbookmark" %>
 <% else %>
-  <%= render "beansposts/bookmark", beanspost: @beanspost %>
+  <%= render "beansposts/bookmark" %>
 <% end %>
 </span>

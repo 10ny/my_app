@@ -70,9 +70,9 @@
       <div class="card-footer text-muted center">
           <%= link_to @beanspost.user.nickname, @beanspost.user %>
           <span class="time-stamp"><%= l @beanspost.created_at, format: :short %></span>
-        <%# unless current_user?(@beanspost.user) %>
-          <span><%#= render 'beansposts/bookmark_form' %></span>
-        <%# end %>
+        <% unless current_user?(@beanspost.user) %>
+          <%= render 'beansposts/bookmark_form' %>
+        <% end %> 
       </div>
     </div>
 <br>

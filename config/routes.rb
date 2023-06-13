@@ -14,11 +14,15 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :account_activations, only: [:edit]
+  resources :account_activations,  only: [:edit]
   resources :password_resets,      only: [:new, :create, :edit, :update]
   # get    "/newpost",   to: "beansposts#new"
-  resources :beansposts
+  resources :beansposts do
+    resource :bookmarks,          only: [:create, :destroy]
+    collection do
+      get :bookmarks
+    end
+  end
   # ,          only: [:index, :new, :show, :edit, :update :create, :destroy]
-  resources :relationships,       only: [:create, :destroy]
-  resources :bookmarks,           only: [:create, :destroy]
+  resources :relationships,        only: [:create, :destroy]
 end
