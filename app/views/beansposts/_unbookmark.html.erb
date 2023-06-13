@@ -1,3 +1,3 @@
-<%= link_to beanspost_bookmark_path(beanspost_id: params[:beanspost_id], id: current_user.bookmarks.find_by(beanspost_id: beanspost.id)), data: { "turbo-method": :delete} do %>
+<%= link_to beanspost_bookmarks_path(@beanspost.id), data: { "turbo-method": :delete} do %>
   <i class="fa-sharp fa-solid fa-bookmark"></i>
 <% end %>

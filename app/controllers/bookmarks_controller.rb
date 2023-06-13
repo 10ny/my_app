@@ -15,7 +15,7 @@ before_action :logged_in_user
   end
 
   def destroy
-    @beanspost = current_user.bookmarks_beansposts.find(params[:beanspost_id]).beanspost
+    @beanspost = current_user.bookmarks_beansposts.find(params[:beanspost_id])
     current_user.unbookmark(@beanspost)
     respond_to do |format|
       format.html { redirect_to @beanspost }

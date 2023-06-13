@@ -25,9 +25,20 @@
             </button>
           <% end %>
         </div>
-          <%# unless current_user?(beanspost.user) %>
-            <%#= render 'beansposts/bookmark_form', locals: {beanspost: beanspost} %> <%# ロケールで代入された変数を定義 %>
-          <%# end %> 
+        <%# 一覧でのブックマーク機能は保留 %>
+          <% unless current_user?(beanspost.user) %>
+            <span id="bookmark_form">
+            <% if current_user.bookmark?(beanspost) %>
+              <%= link_to beanspost do %>
+                <i class="fa-sharp fa-solid fa-bookmark"></i>
+              <% end %>
+            <% else %>
+              <%= link_to beanspost do %>
+                <i class="fa-sharp fa-regular fa-bookmark"></i>
+              <% end %>
+            <% end %>
+            </span>
+          <% end %> 
       </div>
     </div>
     <div class="card-footer text-muted justify-content-between">
