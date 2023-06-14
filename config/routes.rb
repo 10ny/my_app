@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   # get    "/newpost",   to: "beansposts#new"
   resources :beansposts do
     resource :bookmarks,          only: [:create, :destroy]
-    collection do
-      get :bookmarks
-    end
   end
   # ,          only: [:index, :new, :show, :edit, :update :create, :destroy]
   resources :relationships,        only: [:create, :destroy]
