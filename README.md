@@ -55,7 +55,7 @@ https://serve-l6h3.onrender.com
 独自ドメインや常時SSL化などインフラ関連知識をインプットするため
 * RSpec
 * CircleCI ( CI/CDパイプライン )  
-テスト開発駆動の採用できるようになるため
+テスト駆動開発を採用できるようになるため
 <br>
 <br>
 <br>
