@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   before_action :admin_user,      only: :destroy
   
   def index
-    @users = User.where(activated: true).page(params[:page]).per(10) # ページネーションはユーザ10人ごとの表示に設定
+    @users = User.where(activated: true).page(params[:page]).per(10) # pagenationはユーザ10人ごとの表示に設定
   end
 
   def show
     @user = User.find(params[:id])
-    @beansposts = @user.beansposts.all.page(params[:page]).per(12) # ページネーションはポスト12個ごとの表示に設定
+    @beansposts = @user.beansposts.all.page(params[:page]).per(12) # pagenationはポスト12個ごとの表示に設定
+    @bookmarks = @user.bookmarks_beansposts.all.page(params[:page]).per(12) # @userがbookmarkしているすべての投稿
     redirect_to root_url and return unless @user.activated?
   end
 
