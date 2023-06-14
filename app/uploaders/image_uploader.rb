@@ -1,8 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  # -------------------------------- 解説1 ----------------------------------
+  
   include CarrierWave::MiniMagick
   process resize_to_fit: [200, 200]
-  # ------------------------------------------------------------------------
 
   storage :file
 
@@ -10,7 +9,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # -------------------------------- 解説2 ----------------------------------
   version :cropped do
     process :crop
   end
@@ -27,6 +25,5 @@ class ImageUploader < CarrierWave::Uploader::Base
         img
       end
     end
-  # ------------------------------------------------------------------------
 
 end

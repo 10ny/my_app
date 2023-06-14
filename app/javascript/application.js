@@ -7,5 +7,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 // import "custom/image_upload" //エラーのため保留
+// import "custom/crop_images"
 import "custom/fadein"
 import "fontawesome"
