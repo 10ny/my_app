@@ -33,7 +33,7 @@ https://serve-l6h3.onrender.com
 
 #### インフラ
 * Mailgun (メール送信)
-* render
+* render<br>
 現在デプロイはマニュアルで行なっています。
 <br>
 
