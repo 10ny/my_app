@@ -20,11 +20,19 @@
       </div>
       <%= paginate @beansposts %>
     <% else %>
-        <div class="container form-title">
-          <h1>まずはユーザをフォローしてみよう<i class="fa-regular fa-handshake fa-lg"></i></h1>
-        </div>
-        <div class="container">
-          <h1>アプリについて知ってみる</h1>
+        <div class="container form-title nopost">
+          <h1>まずは投稿一覧から<br>ユーザをフォローしてみよう<i class="fa-regular fa-handshake fa-lg"></i></h1>
+          <br>
+          <h3>
+            <%= link_to "beansposts" do %>
+              <i class="fa-solid fa-arrow-right"></i>  ユーザをフォローする
+            <% end %>
+          </h3>
+          <h3>
+            <%= link_to "about" do %>
+              <i class="fa-solid fa-arrow-right"></i>  Serveについて詳しく知る
+            <% end %>
+          </h3>
         </div>
     <% end %>
   </div>
@@ -47,16 +55,18 @@
           </p>
         </div>
       </div>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <%= link_to "新規登録", signup_path, class: "btn btn-primary" %>
-        <br>
-        <%= link_to "Serveについて", about_path, class: "btn btn-info" %>
-      </div>
       <%# YouTube埋め込み欄 %>
       <div class="container center youtube">
         <h4>イメージ動画</h4>
         <br>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/TcPvlt5ji60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> <%# オリジナル動画を差し込む %>
+      </div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "ゲストログイン", guest_path, class: "btn btn-guest btn-lg", data: { "turbo-method": :post } %>
+        <br>
+        <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg" %>
+        <br>
+        <%= link_to "Serveについて", about_path, class: "btn btn-info btn-lg" %>
       </div>
     </div>
   </div>

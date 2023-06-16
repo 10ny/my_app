@@ -75,6 +75,13 @@
             </div>
           </div>
           <%= paginate @beansposts %>
+        <% else %>
+          <div class="container nopost">
+            <h3>投稿がありません</h3>
+            <%= link_to new_beanspost_path do %>
+              <h5><i class="fa-solid fa-pen"></i>  まずは投稿してみよう！！！</h5>
+            <% end %>
+          </div>
         <% end %>
       </div>
       <div
@@ -95,7 +102,12 @@
           </div>
           <%= paginate @bookmarks %>
         <% else %>
-          <h3 class="nobookmark">ブックマークはありません</h3>
+          <div class="container nopost">
+            <h3></i>ブックマークはありません</h3>
+            <%= link_to beansposts_path do %>
+              <h5><i class="fa-regular fa-bookmark"></i>  ブックマークしてみよう</h5>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -103,9 +115,9 @@
       <% if current_user?(@user) %>
         <div class="container row justify-content-evenly">
           <%= link_to "アカウント編集", edit_user_path(@user), class: "btn btn-info col-5" %>
-          <%= link_to "アカウント削除", @user, class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+          <%= link_to "アカウント削除", user_path(@user), class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
         </div>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

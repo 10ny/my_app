@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user,  only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user,    only: [:edit, :update]
-  before_action :admin_user,      only: :destroy
+  before_action :correct_user,    only: [:edit, :update, :destroy]
+  # before_action :admin_user,      only: :destroy 保留
+  before_action :guest_user,      only: [:edit, :update, :destroy]
   
   def index
     @users = User.where(activated: true).page(params[:page]).per(10) # pagenationはユーザ10人ごとの表示に設定
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "削除しました。"
-    redirect_to users_url, status: :see_other
+    redirect_to root_url, status: :see_other
   end
 
   def following
@@ -83,4 +84,14 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to root_url, status: :see_other unless current_user.admin?
     end
+
+    # ゲストユーザーの制限
+    def guest_user
+      user = User.find_by(email: "guest@example.com")
+      if current_user == user
+        flash[:warning] = "ゲストユーザの更新・削除はできません。"
+        redirect_to user
+      end
+    end
+
 end
