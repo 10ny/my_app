@@ -46,6 +46,25 @@ body {
   text-align: left;
 }
 
+/* guest */
+.btn-guest {
+  color: #fff;
+  font-weight: bold;
+  background-color: $orange-500;
+  &:hover {
+    color: #fff;
+    background-color: $orange-400;
+  }
+}
+.nopost {
+  margin: 10rem auto;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: #cbc8c2;
+    }
+  }
+}
 
 
 /* header */

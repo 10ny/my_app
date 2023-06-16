@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post   "contacts/confirm",  to: "contacts#confirm"
   post   "contacts/thanks",   to: "contacts#thanks"
   get    "/signup",           to: "users#new"
+  post   "/guest",            to: "guest_sessions#create"
   get    "/login",            to: "sessions#new"
   post   "/login",            to: "sessions#create"
   delete "/logout",           to: "sessions#destroy"
