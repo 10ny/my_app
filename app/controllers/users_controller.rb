@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user,  only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,    only: [:edit, :update, :destroy]
   # before_action :admin_user,      only: :destroy 保留
-  # before_action :guest_user,      only: [:edit, :update, :destroy]
+  before_action :guest_user,      only: [:edit, :update, :destroy]
   
   def index
     @users = User.where(activated: true).page(params[:page]).per(10) # pagenationはユーザ10人ごとの表示に設定
