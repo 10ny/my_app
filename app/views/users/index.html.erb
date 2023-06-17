@@ -1,11 +1,12 @@
 <% provide(:title, "ユーザ一覧") %>
-<div class="container mypage center row">
+
+<div class="container my-page signup-page center">
   <h1 class="center">ユーザ一覧</h1>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
-  <div>
-    <%#= page_entries_info @users %>
+  <hr>
+  <div class="row users">
+    <% if @users.any? %>
+      <%= render @users %>
     <%= paginate @users %>
   </div>
+  <% end %>
 </div>

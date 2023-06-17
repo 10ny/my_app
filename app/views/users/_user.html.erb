@@ -1,7 +1,14 @@
-<li>
-  <%#= link_to user.image, user, class: "user-image" %>
-  <%= link_to user.nickname, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "削除", user, data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+<div>
+  <% if user.image.attached? %>
+    <%= image_tag user.image.variant(:display), class: "user-image my-3", width: "10%" %>
+  <% else %>
+    <%= image_tag("default_user.png", class: "my-3", width: "10%" ) %> <%# 登録画像がない場合はデフォルトを表示 %>
   <% end %>
-</li>
+  <span class="user-nickname ms-5">
+    <%= link_to user.nickname, user %>
+    <% if current_user.admin? && !current_user?(user) %>
+      | <%= link_to "削除", user, data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+    <% end %>
+  </span>
+</div>
+<hr>

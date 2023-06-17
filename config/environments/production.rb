@@ -39,7 +39,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   
-  # アップロードされたファイルをローカルファイルシステムに保存する設定
+  # アップロードされたファイルを AWS S3 に保存する設定
   config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
