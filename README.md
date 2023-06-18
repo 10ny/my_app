@@ -57,6 +57,7 @@ https://serve-l6h3.onrender.com
 <br>
 
 #### 今後採用したい技術・機能
+* 検索機能
 * MySQL
 * Docker / Docker-compose  
 開発環境およびテスト・本番環境構築の効率化のため
