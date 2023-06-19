@@ -23,7 +23,7 @@ https://serve-l6h3.onrender.com
 * HTML
 * CSS(SCSS)
 * JavaScript
-* JQuery
+* jQuery
 * Bootstrap
 
 #### バックエンド
