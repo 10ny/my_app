@@ -7,25 +7,15 @@
 </a>
 
 <div class="px-4 pt-5 mb-5 text-center border-bottom about-page">
-  <h1 class="display-4 fw-bold">Serveについて</h1>
+  <h2 class="fw-bold">Serveについて</h2>
   <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4">新たな豆との出会いを提供<small class="text-muted">(Serve)</small>します。例えば...</p><br>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-      <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic1"><i class="fa-regular fa-square-caret-down fa-lg"></i> 豆を記録できる</a>
-      </button>
-      <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic2"><i class="fa-regular fa-square-caret-down fa-lg"></i> 記録の詳細も確認</a>
-      </button>
-    </div>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-      <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic3"><i class="fa-regular fa-square-caret-down fa-lg"></i> 他の人の記録も</a>
-      </button>
-      <button type="button" class="btn btn-lg px-4 me-3">
-        <a href="#topic4"><i class="fa-regular fa-square-caret-down fa-lg"></i> お気に入りを見つけよう</a>
-      </button>
-    </div>
+    <p class="lead mb-4">新たな豆との出会いを提供します。例えば...</p><br>
+    <div class="center">
+      <a href="#topic1" class="btn btn-outline-secondary btn-lg px-4 mb-4"><i class="fa-solid fa-check"></i> 豆を記録できる</a>
+      <a href="#topic2" class="btn btn-outline-secondary btn-lg px-4 mb-4"><i class="fa-solid fa-check"></i> 記録の詳細も確認</a>
+      <a href="#topic3" class="btn btn-outline-secondary btn-lg px-4 mb-4"><i class="fa-solid fa-check"></i> 他の人の記録も</a>
+      <a href="#topic4" class="btn btn-outline-secondary btn-lg px-4 mb-4"><i class="fa-solid fa-check"></i> お気に入りを見つけよう</a>
+    </div><br>
   </div>
   <div class="overflow-hidden" style="max-height: 30vh;">
     <div class="container px-5">
@@ -132,6 +122,7 @@
         <%= link_to "はじめる", "/", class: "btn btn-primary btn-lg px-4 me-sm-3" %>
       <% else %>
         <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg px-4 me-sm-3" %>
+        <%= link_to "ゲストログイン", guest_path, class: "btn btn-guest btn-lg", data: { "turbo-method": :post } %>
       <% end %>
     </div>
   </div>

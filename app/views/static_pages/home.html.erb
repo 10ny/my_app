@@ -1,6 +1,8 @@
 <%# information %>
 <div class="container-fluid information center">
+  <div class="vac">
     <p>Infomation</p>
+  </div>
 </div>
 
 <%# トップページ %>
@@ -8,7 +10,7 @@
   <div class="container center signup-page">
     <% if @beansposts.any?%>
       <div class="container form-title">
-        <h1>フォロー中 投稿一覧</h1>
+        <h2>フォロー中 投稿一覧</h2>
       </div>
       <span class="sp"><%= paginate @beansposts %></span>
       <div class="album py-5">

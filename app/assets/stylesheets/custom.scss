@@ -1,7 +1,7 @@
 @import "bootstrap";
 // @import "https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.css";
 @import "hero.scss";
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 
 /* miscellaneous */
 // デバッグ表示
@@ -23,7 +23,7 @@
 /* universal */
 
 body {
-  color: $gray-900;
+  color: $gray-800;
   background-image: image-url('coffeebeans.png');
   background-color:rgba(255,255,255,0.9);
   background-blend-mode:lighten;
@@ -83,6 +83,9 @@ header {
   ul {
     list-style: none;
   }
+  a {
+    color: $orange-900 !important;
+  } 
 }
 
   /* alert */
@@ -112,6 +115,7 @@ footer {
     font-size: 20px;
     font-weight: bold;
     padding: auto;
+    line-height: 50px;
   }
 }
 
@@ -123,9 +127,13 @@ footer {
   padding: 48px 12px;
   a {
     text-decoration: none;
+    display: block;
     &:hover {
       opacity: 0.4;
     }
+  }
+  .lead {
+    color: $gray-600;
   }
   .hero-title {
     font-size: 2em;

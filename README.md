@@ -64,7 +64,7 @@ https://serve-l6h3.onrender.com
 開発環境およびテスト・本番環境構築の効率化のため
 * AWS( Route53 / EC2 / RDS)
 * Nginx  
-独自ドメインや常時SSL化などインフラ関連知識をインプットするため
+独自ドメインや常時SSL化などインフラ関連知識を学ぶため
 * RSpec
 * CircleCI ( CI/CDパイプライン )  
 テスト駆動開発を採用できるようになるため
