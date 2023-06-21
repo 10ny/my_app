@@ -13,7 +13,7 @@ https://serve-l6h3.onrender.com
 <br>
 
 #### イメージ動画
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mV9DD2141Ps" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+https://www.youtube.com/embed/mV9DD2141Ps
 <br>
 <br>
 <br>
