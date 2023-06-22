@@ -4,8 +4,8 @@ Serve(サーブ)は好みのコーヒーやコーヒー豆の情報をメモ感�
 レスポンシブ対応しております。(確認しておりますが、表示崩れなどある場合はすぐに修正いたします。)
 <br>
 <br>
-<img width="360" alt="top_page" src="https://github.com/Juniquey/my_app/assets/107200906/8e4efdaa-bf7a-41a0-928e-7b19211ff81d">
-<img width="360" alt="post_detail_page" src="https://github.com/Juniquey/my_app/assets/107200906/aa46a0b7-d15b-4681-99d6-ba532e0e4599">
+<img width="400" alt="top_page" src="https://github.com/Juniquey/my_app/assets/107200906/8e4efdaa-bf7a-41a0-928e-7b19211ff81d">
+<img width="400" alt="post_detail_page" src="https://github.com/Juniquey/my_app/assets/107200906/aa46a0b7-d15b-4681-99d6-ba532e0e4599">
 <br>
 <br>
 <br>
