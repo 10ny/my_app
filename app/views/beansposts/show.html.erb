@@ -22,7 +22,7 @@
               <thead>
                 <tr>
                   <th scope="col"> </th>
-                  <th scope="col"> </th>
+                  <td scope="col"> </td>
                 </tr>
               </thead>
               <tbody>
@@ -79,8 +79,8 @@
 <br>
   <% if current_user?(@beanspost.user) %>
   <div class="container row justify-content-evenly">
-    <%= link_to "投稿編集", edit_beanspost_path(@beanspost), class: "btn btn-info col-5" %>
     <%= link_to "投稿削除", @beanspost, class: "btn btn-danger col-5", data: { "turbo-method": :delete, turbo_confirm: "削除しますか?" } %>
+    <%= link_to "投稿編集", edit_beanspost_path(@beanspost), class: "btn btn-info col-5" %>
   </div>
   <% end %>
 </div>

@@ -224,6 +224,13 @@ footer {
   color: $gray-900;
 }
 
+.table {
+  vertical-align: middle;
+  th {
+    width: 30%;
+  }
+}
+
 /* posts_page */
 .posts_page {
   ol {
@@ -250,9 +257,6 @@ footer {
       color: #7DB9DE;
     }
   }
-  // strong {
-  //   display: block;
-  // }
 }
 
 .user_avatars {
