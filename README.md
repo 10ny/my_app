@@ -67,6 +67,7 @@ https://www.youtube.com/embed/mV9DD2141Ps
 
 #### 今後採用したい技術・機能
 * 検索機能
+* 画像トリミング機能
 * MySQL
 * Docker / Docker-compose  
 開発環境およびテスト・本番環境構築の効率化のため
