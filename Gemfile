@@ -20,10 +20,9 @@ gem "stimulus-rails",  "1.0.4"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.4"
 gem "bootsnap",        "1.12.0", require: false
-gem "pg",         "1.3.5" #PostgreSQL gem
+gem "pg",              "1.5.3" #PostgreSQL gem
 
 group :development, :test do
-  gem "sqlite3", "1.4.2"
   gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
   gem "faker",           "2.21.0" # 開発環境のみユーザデータサンプル作成
 end
