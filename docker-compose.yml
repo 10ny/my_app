@@ -2,10 +2,13 @@ version: '3'
 
 volumes:
   postgres_volumes:
+    name: serve-data
+    driver: local
 
 services:
   db:
     image: postgres
+    container_name: serve-app-db
     ports:
       - "5432:5432"
     restart: always
@@ -19,6 +22,7 @@ services:
   app:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    container_name: serve-app
     environment:
       - 'POSTGRES_USER=postgres'
       - 'POSTGRES_PASSWORD=password'

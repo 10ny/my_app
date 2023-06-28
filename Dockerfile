@@ -9,8 +9,8 @@ RUN apt-get update -qq && apt-get install -y \
 
 WORKDIR /my_app
 
-COPY Gemfile
-COPY Gemfile.lock
+COPY Gemfile .
+COPY Gemfile.lock .
 RUN bundle install
 
 COPY entrypoint.sh /usr/bin/
