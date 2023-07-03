@@ -17,6 +17,7 @@
               <% end %>
             </li>
             <li><%= link_to "マイページ", user_path(current_user), class: "nav-link pc" %></li>
+            <li class="pc"><%= render "searches/search_form" %></li>
             <li>
               <%= link_to user_path(current_user), class: "nav-link sp" do %>
                 <i class="fa-sharp fa-regular fa-circle-user fa-lg" aria-label="マイページ"></i>
@@ -33,6 +34,7 @@
                 </div>
                 <div class="offcanvas-body center">
                   <ul>
+                    <li class="sp"><%= render "searches/search_form" %></li>
                     <hr class="sp">
                     <li><%= link_to "マイページ", user_path(current_user), class: "nav-link sp" %></li>
                     <hr class="sp">

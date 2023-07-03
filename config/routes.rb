@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post   "contacts/edit",     to: "contacts#edit"
   post   "contacts/confirm",  to: "contacts#confirm"
   post   "contacts/thanks",   to: "contacts#thanks"
+  get    "/search",           to: "searches#search"
   get    "/preparation",      to: "static_pages#preparation"
   get    "/signup",           to: "users#new"
   post   "/guest",            to: "guest_sessions#create"

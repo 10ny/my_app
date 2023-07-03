@@ -44,4 +44,20 @@ class Beanspost < ApplicationRecord
     bookmarks.exists?(user_id: user.id)
   end
 
+  def self.search_for(content, type)
+    if type == "product_name"
+      Beanspost.where("product_name LIKE ?", "%" + content + "%")
+    elsif type == "country"
+      Beanspost.where("country LIKE ?", "%" + content + "%")
+    elsif type == "content"
+      Beanspost.where("content LIKE ?", "%" + content + "%")
+    else
+      Beanspost.all
+    end
+  end
+
+  #煎り具合検索用メソッド
+  def roast_enum(content)
+
+  end
 end

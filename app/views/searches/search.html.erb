@@ -1,0 +1,14 @@
+<% provide(:title, "検索結果") %>
+
+  <div class="container center signup-page">
+    <div class="container form-title">
+      <h3>"<%= @content %>"(<%= @type %>)の検索結果</h3>
+    </div>
+    <div class="album py-5">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <%= render @beansposts %>
+        </div>
+      </div>
+    </div>
+  </div>
