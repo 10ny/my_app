@@ -42,6 +42,12 @@ https://www.youtube.com/embed/mV9DD2141Ps
 * PostgreSQL (データベース)
 * Amazon S3 (画像アップロード)
 
+
+#### インフラ
+* Docker / Docker-compose
+* Mailgun (メール送信)
+
+
 #### デプロイ
 * render<br>
 現在デプロイはマニュアルで行なっています。
