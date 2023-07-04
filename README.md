@@ -37,16 +37,19 @@ https://www.youtube.com/embed/mV9DD2141Ps
 #### バックエンド
 * Ruby 3.1.4
 * Ruby on Rails 7.0.4
+
+#### データベース・ストレージ
 * PostgreSQL (データベース)
 * Amazon S3 (画像アップロード)
 
-#### インフラ
-* Mailgun (メール送信)
+#### デプロイ
 * render<br>
 現在デプロイはマニュアルで行なっています。
 <br>
 
 #### その他
+* Docker / docker-compose
+* Mailgun (メール送信)
 * Git / GitHub
 * Visual Studio Code (エディタ)
 <br>
@@ -57,6 +60,7 @@ https://www.youtube.com/embed/mV9DD2141Ps
 * フォロー機能
 * 投稿機能
 * ブックマーク機能
+* 検索機能(投稿)
 * 問い合わせ機能 ( ActiveModel )
 * メール送信機能
 * 認証機能
@@ -66,11 +70,8 @@ https://www.youtube.com/embed/mV9DD2141Ps
 <br>
 
 #### 今後採用したい技術・機能
-* 検索機能
 * 画像トリミング機能
 * MySQL
-* Docker / Docker-compose  
-開発環境およびテスト・本番環境構築の効率化のため
 * AWS( Route53 / EC2 / RDS)
 * Nginx  
 独自ドメインや常時SSL化などインフラ関連知識を学ぶため
