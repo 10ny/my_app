@@ -1,7 +1,6 @@
 @import "bootstrap";
 // @import "https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.css";
 @import "hero.scss";
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 
 /* miscellaneous */
 // デバッグ表示
@@ -370,10 +369,21 @@ footer {
 
 
 /* responsive */
-@media (min-width:769px){
+@media (min-width:769px) {
   .sp {
     display: none;
     margin-left: none;
+  }
+}
+@media screen and (min-width:992px) {
+  .tbm {
+    display: none;
+  }
+}
+
+@media screen and (max-width:992px) {
+  .tb {
+    display: none;
   }
 }
 

@@ -55,9 +55,5 @@ class Beanspost < ApplicationRecord
       Beanspost.all
     end
   end
-
-  #煎り具合検索用メソッド
-  def roast_enum(content)
-
-  end
+  
 end

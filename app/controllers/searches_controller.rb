@@ -4,8 +4,9 @@ class SearchesController < ApplicationController
   def search
     @content = params[:content]
     @type = params[:type]
+    # @roast = params[:roast]
 
-    @beansposts = Beanspost.search_for(@content, @type) 
+    @beansposts = Beanspost.search_for(@content, @type)
   end
 
 end
