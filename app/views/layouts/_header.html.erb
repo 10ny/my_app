@@ -17,12 +17,12 @@
               <% end %>
             </li>
             <li><%= link_to "マイページ", user_path(current_user), class: "nav-link pc" %></li>
-            <li class="pc"><%= render "searches/search_form" %></li>
             <li>
               <%= link_to user_path(current_user), class: "nav-link sp" do %>
                 <i class="fa-sharp fa-regular fa-circle-user fa-lg" aria-label="マイページ"></i>
               <% end %>
             </li>
+            <li class="tb"><%= render "searches/search_form" %></li>
             <li>
               <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="offcanvas-body center">
                   <ul>
-                    <li class="sp"><%= render "searches/search_form" %></li>
+                    <li class="tbm"><%= render "searches/search_form" %></li>
                     <hr class="sp">
                     <li><%= link_to "マイページ", user_path(current_user), class: "nav-link sp" %></li>
                     <hr class="sp">

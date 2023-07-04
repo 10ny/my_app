@@ -1,7 +1,8 @@
 <% if logged_in? %>
   <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.text_field :content %>
+    <%= f.text_field :content %><br>
     <%= f.select :type, options_for_select([["商品名", "product_name"], ["生産国", "country"],["コメント", "content"]]) %>
+    <%#= f.select :roast, options_for_select([["煎り具合", " "], ["浅煎り", "0"], ["中浅煎り", "1"], ["中煎り", "2"], ["中深煎り", "3"], ["深煎り", "4"]]) %>
     <%= f.submit "検索" %>
   <% end %>  
 <% end %>
