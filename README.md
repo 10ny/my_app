@@ -37,17 +37,25 @@ https://www.youtube.com/embed/mV9DD2141Ps
 #### バックエンド
 * Ruby 3.1.4
 * Ruby on Rails 7.0.4
+
+#### データベース・ストレージ
 * PostgreSQL (データベース)
 * Amazon S3 (画像アップロード)
+
 
 #### インフラ
 * Docker / Docker-compose
 * Mailgun (メール送信)
+
+
+#### デプロイ
 * render<br>
 現在デプロイはマニュアルで行なっています。
 <br>
 
 #### その他
+* Docker / docker-compose
+* Mailgun (メール送信)
 * Git / GitHub
 * Visual Studio Code (エディタ)
 <br>
