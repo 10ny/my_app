@@ -17,7 +17,7 @@ https://serve-l6h3.onrender.com
 <br>
 
 #### イメージ動画
-https://www.youtube.com/embed/mV9DD2141Ps
+https://www.youtube.com/watch?v=LkhOBC_12lo
 <br>
 <br>
 <br>
