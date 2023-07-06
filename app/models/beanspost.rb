@@ -45,14 +45,18 @@ class Beanspost < ApplicationRecord
   end
 
   def self.search_for(content, type)
-    if type == "product_name"
+    if type == ""
+      Beanspost.where("product_name LIKE ? OR shop_name LIKE ? OR country LIKE ? OR content LIKE ? ", "%" + content + "%", "%" + content + "%", "%" + content + "%", "%" + content + "%")
+    elsif type == "product_name"
       Beanspost.where("product_name LIKE ?", "%" + content + "%")
+    elsif type == "shop_name"
+      Beanspost.where("shop_name LIKE ?", "%" + content + "%")
     elsif type == "country"
       Beanspost.where("country LIKE ?", "%" + content + "%")
     elsif type == "content"
       Beanspost.where("content LIKE ?", "%" + content + "%")
     else
-      Beanspost.all
+      Beanspost.limit(30)
     end
   end
   

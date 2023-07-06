@@ -2,7 +2,11 @@
 
   <div class="container center signup-page">
     <div class="container form-title">
-      <h3>"<%= @content %>"(<%= @type %>)の検索結果</h3>
+      <% if @content.present? %>
+        <h3>"<%= @content %>" (<%= @type_key %>) の検索結果</h3>
+      <% else %>
+        <h3>最新投稿 30件</h3>
+      <% end %>
     </div>
     <div class="album py-5">
       <div class="container">
